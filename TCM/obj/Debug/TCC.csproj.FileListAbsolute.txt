@@ -19,3 +19,6 @@ C:\Users\mateu\Desktop\TCC\TCM\obj\Debug\TCC.pdb
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\TCC.exe.config
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.exe
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.pdb
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\TCC.exe.config
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.exe
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.pdb

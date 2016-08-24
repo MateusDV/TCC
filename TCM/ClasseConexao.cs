@@ -71,5 +71,20 @@ namespace TCC
                 desconectar();
             }
         }
-    }
+
+		public int executarSQLNonQuery(String comando_sql)
+		{
+			try
+			{
+				conectar();
+				SqlCommand cmd = new SqlCommand(comando_sql, conexao);
+				return (int) cmd.ExecuteNonQuery();
+			}
+			catch(Exception) { return 0; }
+			finally
+			{
+				desconectar();
+			}
+		}
+	}
 }
