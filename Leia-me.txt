@@ -1,0 +1,18 @@
+ATENÇÃO, QUANDO FOR PARAR DE UTILIZAR ALGUM FORMULÁRIO, APERTAR O BOTÃO FECHAR/CANCELAR. DO CONTRÁRIO ELE VAI CONTINUAR ABERTO NO FUNDO, E QUANDO TENTAR USAR ELE DE NOVO, NÃO SERÁ POSSÍVEL
+
+ESSE BUG SERÁ CONSERTADO FUTURAMENTE
+
+
+(informações de login, usuários e senhas)
+
+Administrador:
+login: maria@esc.com
+senha: 12345,
+
+Funcionario:
+login: carlos@esc.com
+senha: 12345
+
+Professor:
+login: joao@esc.com
+senha: 12345
