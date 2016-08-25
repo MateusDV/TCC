@@ -32,9 +32,3 @@ funcionario
 -alterar/excluir
 
 
-cursos
-
--criar
--alterar/excluir
-
-
