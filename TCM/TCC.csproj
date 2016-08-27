@@ -127,6 +127,7 @@
     <Compile Include="Limpar.cs" />
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\Atividade.cs" />
+    <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Curso_Aluno.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Nota.cs" />

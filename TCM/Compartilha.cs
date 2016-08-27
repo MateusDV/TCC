@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TCC
 {
-    class Compartilha
+    public class Compartilha
     {
         private static string nivel; //pegar no login e usar em outros lugares
 		private static string id;

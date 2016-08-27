@@ -20,7 +20,7 @@ namespace TCC
 
                 String user = "sa";
                 String pass = "12345";
-                String banco = "AALVES";
+                String banco = "AALVES3";
                 String maquina = Environment.MachineName;
 
                 String strConexao = String.Format("User ID={0}; Password={1}; Initial Catalog={2}; Data Source={3}; Persist Security Info=True;", user, pass, banco, maquina);
