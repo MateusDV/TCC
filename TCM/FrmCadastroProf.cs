@@ -68,11 +68,9 @@ namespace TCC
 
 				bool Valido = Validar.Cpf(cpf);
 				//checa se os textbox, maskedtextbox estao vazios
-				var emptyTextboxes = from tb in this.Controls.OfType<TextBox>() where string.IsNullOrEmpty(tb.Text) select tb;
+				
 
-				var emptyMask = from mb in this.Controls.OfType<MaskedTextBox>() where string.IsNullOrEmpty(mb.Text) select mb;
-
-				if (emptyTextboxes.Any() || emptyMask.Any() || Valido == false)
+				if (Checar.textbox(this) || Valido == false)
 				{
 					if (Valido == false)
 					{
@@ -85,32 +83,12 @@ namespace TCC
 				}
 				else
 				{
-					//checa o nome para ver se já nao existe
-					string check = string.Format("SELECT NOME FROM PROFESSOR WHERE NOME = '{0}'", nome);
-					ds = conexao.executarSQL(check);
-					int qnt = 0;
-					qnt = ds.Tables[0].Rows.Count;
-
-					if (qnt > 0) //se ja existe
-					{
-						MessageBox.Show("Esse professor já existe nos registros");
-					}
-					else //se nao existe
-					{
-						//MessageBox.Show(curso + "\n" + periodo);
-
-						conexao = new ClasseConexao();
-						ds = new DataSet();
-
-						string sql = String.Format("INSERT INTO PROFESSOR VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}')", nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha);
-						//MessageBox.Show(sql);
-						ds = conexao.executarSQL(sql);
-					}
+					int c = Professor.insert(nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha);
+					MessageBox.Show(c.ToString());
+					
 				}
 			}
-			catch (Exception)
-			{
-			}
+			catch(Exception) { }
 		}
 
 		private void btnLimpar_Click(object sender, EventArgs e)

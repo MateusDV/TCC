@@ -62,7 +62,7 @@ namespace TCC
 
 		private void FrmAtividades_Load(object sender, EventArgs e)
 		{
-			String nivel = comp.Nivel;
+			String nivel = comp.Tipo;
 			String id = comp.Id;
 
 			if (nivel.Equals("gerente", StringComparison.InvariantCultureIgnoreCase))
@@ -90,7 +90,7 @@ namespace TCC
 
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			String nivel = comp.Nivel;
+			String nivel = comp.Tipo;
 			String id = comp.Id;
 
 			if (cmbCampo.SelectedItem.Equals("ID_PROFESSOR") && nivel.Equals("Professor", StringComparison.InvariantCultureIgnoreCase))

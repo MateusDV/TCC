@@ -21,14 +21,11 @@ namespace TCC
 
 		private void FrmPrincipal_Load(object sender, EventArgs e)
 		{
-			string nivel = comp.Nivel;
-			string nome = comp.Nome;
+			Cargo cargo = new Cargo();
+			string tipo = comp.Tipo;
+			string id = comp.Id;
 
-			if (nivel.Equals("gerente", StringComparison.InvariantCultureIgnoreCase))
-			{
-
-			}
-			else if (nivel.Equals("professor", StringComparison.InvariantCultureIgnoreCase))
+			if (tipo.Equals("professor", StringComparison.InvariantCultureIgnoreCase))
 			{
 				alunoToolStripMenuItem.Visible = false;
 				funcionárioToolStripMenuItem.Visible = false;
@@ -37,10 +34,31 @@ namespace TCC
 			}
 			else
 			{
-				cadastrarToolStripMenuItem.Visible = false;
+				Funcionario.select(id);
+				cargo.select(Funcionario.Cargo);
+
+				if(!Cargo.ALUNO_CADS || !Cargo.ALUNO_CONS)
+					alunoToolStripMenuItem.Visible = false;
+
+				if(!Cargo.PROF_CADS || !Cargo.PROF_CONS || !Cargo.NOTA_CONS || !Cargo.ATIV_CONS)
+					professorToolStripMenuItem.Visible = false;
+
+				if(!Cargo.FUNC_CADS || !Cargo.FUNC_CONS)
+					funcionárioToolStripMenuItem.Visible = false;
+
+				cadastrarMatricularToolStripMenuItem.Visible = Cargo.ALUNO_CADS;
+				consultarToolStripMenuItem.Visible = Cargo.ALUNO_CONS;
+
+				cadastrarToolStripMenuItem1.Visible = Cargo.PROF_CADS;
+				cONSULToolStripMenuItem.Visible = Cargo.PROF_CONS;
+				atividadesToolStripMenuItem.Visible = Cargo.ATIV_CONS;
+				notasToolStripMenuItem.Visible = Cargo.NOTA_CONS;
+
+				cadastrarToolStripMenuItem.Visible = Cargo.FUNC_CADS;
+				consultarToolStripMenuItem1.Visible = Cargo.FUNC_CONS;
 			}
 
-			tslBV.Text = String.Format("Seja bem vindo(a) {0}", nome);
+			tslBV.Text = String.Format("Seja bem vindo(a) {0}", comp.Nome);
 		}
 
 		//botao sair

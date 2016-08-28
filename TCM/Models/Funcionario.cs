@@ -48,6 +48,7 @@ namespace TCC
 		{
 			conexao = new ClasseConexao();
 			ds = new DataSet();
+			Compartilha comp = new Compartilha();
 
 			string sql = String.Format("SELECT * FROM FUNCIONARIO WHERE EMAIL = '{0}' AND SENHA = '{1}'", email, senha);
 
@@ -58,7 +59,8 @@ namespace TCC
 			if (conta > 0)
 			{
 				id = ds.Tables[0].Rows[0]["ID_FUNCIONARIO"].ToString();
-				tipo = ds.Tables[0].Rows[0]["NOME"].ToString();
+				tipo = "funcionario";
+				comp.Nome = ds.Tables[0].Rows[0]["NOME"].ToString();
 				return true;
 			}
 			else
@@ -67,6 +69,19 @@ namespace TCC
 				tipo = "";
 				return false;
 			}
+		}
+
+		public static void select(String id)
+		{
+			ClasseConexao conexao = new ClasseConexao();
+			DataSet ds = new DataSet();
+
+			string sql = string.Format("SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = {0}", id);
+
+			ds = conexao.executarSQL(sql);
+
+			ID_Funcionario = (int) ds.Tables[0].Rows[0]["ID_FUNCIONARIO"];
+			Cargo = ds.Tables[0].Rows[0]["CARGO"].ToString();
 		}
 	}
 }

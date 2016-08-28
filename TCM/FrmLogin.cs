@@ -43,10 +43,10 @@ namespace TCC
 			string id = "";
 			string tipo = "";
 
-			if ((func.login(email, senha, out id, out tipo) == true) ^ (prof.login(email, senha, out id, out tipo) == true))
+			if ((func.login(email, senha, out id, out tipo) == true) || (prof.login(email, senha, out id, out tipo) == true))
 			{
 				comp.Id = id;
-				comp.Nivel = tipo;
+				comp.Tipo = tipo;
 
 				this.Hide();
 				FrmPrincipal frmPrincipal = new FrmPrincipal();
@@ -56,53 +56,6 @@ namespace TCC
 			{
 				MessageBox.Show("Usuário ou senha incorretos");
 			}
-
-			//conexao = new ClasseConexao();
-			//ds = new DataSet();
-			//Compartilha comp = new Compartilha(); //get & set nivel/id
-
-			//string sql = String.Format("SELECT * FROM FUNCIONARIO WHERE EMAIL = '{0}' AND SENHA = '{1}'", email, senha);
-
-			//ds = conexao.executarSQL(sql);
-
-			//int conta = ds.Tables[0].Rows.Count;
-
-			//if (conta > 0)
-			//{
-			//	comp.Nivel = ds.Tables[0].Rows[0]["CARGO"].ToString();
-			//	comp.Id = ds.Tables[0].Rows[0]["ID_FUNCIONARIO"].ToString();
-			//	comp.Nome = ds.Tables[0].Rows[0]["NOME"].ToString();
-			//	this.Hide();
-			//	FrmPrincipal frmPrincipal = new FrmPrincipal();
-			//	frmPrincipal.Show();
-
-			//}
-			//else
-			//{
-			//	conexao = new ClasseConexao();
-			//	ds = new DataSet();
-			//	conta = 0;
-
-			//	sql = String.Format("SELECT * FROM PROFESSOR WHERE EMAIL = '{0}' AND SENHA = '{1}'", email, senha);
-
-			//	ds = conexao.executarSQL(sql);
-
-			//	conta = ds.Tables[0].Rows.Count;
-
-			//	if (conta > 0)
-			//	{
-			//		comp.Nivel = "professor";
-			//		comp.Id = ds.Tables[0].Rows[0]["ID_PROFESSOR"].ToString();
-			//		comp.Nome = ds.Tables[0].Rows[0]["NOME"].ToString();
-			//		this.Hide();
-			//		FrmPrincipal frmPrincipal = new FrmPrincipal();
-			//		frmPrincipal.Show();
-			//	}
-			//	else
-			//	{
-			//		MessageBox.Show("Usuário ou senha incorretos.");
-			//	}
-			//}
 		}
 
         //botao cancelar

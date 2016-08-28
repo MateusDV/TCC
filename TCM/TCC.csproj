@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checar.cs" />
     <Compile Include="ClasseConexao.cs" />
     <Compile Include="Compartilha.cs" />
     <Compile Include="FrmAtividades.cs">
@@ -81,6 +82,12 @@
     </Compile>
     <Compile Include="FrmCadastroProf.Designer.cs">
       <DependentUpon>FrmCadastroProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCargo.Designer.cs">
+      <DependentUpon>FrmCargo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConsultaAluno.cs">
       <SubType>Form</SubType>
@@ -149,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroProf.resx">
       <DependentUpon>FrmCadastroProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCargo.resx">
+      <DependentUpon>FrmCargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaAluno.resx">
       <DependentUpon>FrmConsultaAluno.cs</DependentUpon>

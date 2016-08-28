@@ -8,14 +8,14 @@ namespace TCC
 {
     public class Compartilha
     {
-        private static string nivel; //pegar no login e usar em outros lugares
+        private static string tipo; //pegar no login e usar em outros lugares
 		private static string id;
 		private static string nome;
 
-		public string Nivel
+		public string Tipo
 		{
-			get { return nivel; }
-			set { nivel = value; }
+			get { return tipo; }
+			set { tipo = value; }
 		}
 
 		public string Id
