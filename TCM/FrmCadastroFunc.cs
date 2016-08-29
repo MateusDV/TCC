@@ -26,12 +26,17 @@ namespace TCC
         }
 
         private void FrmCadastroFunc_Load(object sender, EventArgs e)
-        {
+		{ 
+
+			Cargo.select();
+
 			cmbSexo.Items.Add("M");
 			cmbSexo.Items.Add("F");
 
-			cmbCargo.Items.Add("Gerente");
-			cmbCargo.Items.Add("Funcionario");
+			for (int i = 0; i < Cargo.Tabela.Rows.Count; i++)
+			{
+				cmbCargo.Items.Add(Cargo.Tabela.Rows[i]["NOME"].ToString());
+			}
         }
 
 		private void btnCadastrar_Click(object sender, EventArgs e)
@@ -55,18 +60,14 @@ namespace TCC
 				String cel = txtCel.Text;
 				String email = txtEmail.Text;
 				String senha = txtSenha.Text;
-				String cargo = cmbCargo.SelectedItem.ToString();
+				int cargo = cmbCargo.SelectedIndex + 1;
 
 				bool Valido = Validar.Cpf(cpf);
 
 				//checa se os textbox, maskedtextbox estao vazios
-				var emptyTextboxes = from tb in this.Controls.OfType<TextBox>() where string.IsNullOrEmpty(tb.Text) select tb;
 
-				var emptyMask = from mb in this.Controls.OfType<MaskedTextBox>() where string.IsNullOrEmpty(mb.Text) select mb;
 
-				//var emptyCmb = from cmb in this.Controls.OfType<ComboBox>() where string.IsNullOrWhiteSpace(cmb.) select cmb;
-
-				if (emptyTextboxes.Any() || emptyMask.Any() || Valido == false)
+				if (Checar.textbox(this) || Valido == false)
 				{
 					if (Valido == false)
 					{
@@ -102,9 +103,7 @@ namespace TCC
 					}
 				}
 			}
-			catch (Exception)
-			{
-			}
+			catch(Exception) { }
 		}
 
 		private void btnLimpar_Click(object sender, EventArgs e)
@@ -129,6 +128,21 @@ namespace TCC
 			txtEstado.Text = "Sao Paulo";
 			txtFone.Text = "01184121357";
 			txtCel.Text = "011964236785";
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			//nao permite duas instancias do mesmo formulario
+			if(Application.OpenForms.OfType<FrmCargo>().Count() > 0)
+			{
+				MessageBox.Show("O formulário já está aberto");
+			}
+			else
+			{
+				FrmCargo frmCargo = new FrmCargo();
+				frmCargo.Show();
+				frmCargo.MdiParent = this.MdiParent;
+			}
 		}
 	}
 }

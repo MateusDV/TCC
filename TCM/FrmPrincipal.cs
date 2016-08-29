@@ -21,7 +21,6 @@ namespace TCC
 
 		private void FrmPrincipal_Load(object sender, EventArgs e)
 		{
-			Cargo cargo = new Cargo();
 			string tipo = comp.Tipo;
 			string id = comp.Id;
 
@@ -35,7 +34,7 @@ namespace TCC
 			else
 			{
 				Funcionario.select(id);
-				cargo.select(Funcionario.Cargo);
+				Cargo.select(Funcionario.Cargo);
 
 				if(!Cargo.ALUNO_CADS || !Cargo.ALUNO_CONS)
 					alunoToolStripMenuItem.Visible = false;
@@ -202,6 +201,21 @@ namespace TCC
 				FrmNotas frmNotas = new FrmNotas();
 				frmNotas.Show();
 				frmNotas.MdiParent = this;
+			}
+		}
+
+		private void cargosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//nao permite duas instancias do mesmo formulario
+			if(Application.OpenForms.OfType<FrmCargo>().Count() > 0)
+			{
+				MessageBox.Show("O formulário já está aberto");
+			}
+			else
+			{
+				FrmCargo frmCargo = new FrmCargo();
+				frmCargo.Show();
+				frmCargo.MdiParent = this;
 			}
 		}
 	}

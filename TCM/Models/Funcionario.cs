@@ -81,6 +81,20 @@ namespace TCC
 			ds = conexao.executarSQL(sql);
 
 			ID_Funcionario = (int) ds.Tables[0].Rows[0]["ID_FUNCIONARIO"];
+			Nome = ds.Tables[0].Rows[0][1].ToString();
+			Sexo = ds.Tables[0].Rows[0][2].ToString();
+			RG = ds.Tables[0].Rows[0][3].ToString();
+			CPF = ds.Tables[0].Rows[0][4].ToString();
+			Rua = ds.Tables[0].Rows[0][5].ToString();
+			Num = (int) ds.Tables[0].Rows[0][6];
+			Bairro = ds.Tables[0].Rows[0][7].ToString();
+			Cep = ds.Tables[0].Rows[0][8].ToString();
+			Cidade = ds.Tables[0].Rows[0][9].ToString();
+			Estado = ds.Tables[0].Rows[0][10].ToString();
+			Telefone = ds.Tables[0].Rows[0][11].ToString();
+			Celular = ds.Tables[0].Rows[0][12].ToString();
+			Email = ds.Tables[0].Rows[0][13].ToString();
+			Senha = ds.Tables[0].Rows[0][14].ToString();
 			Cargo = ds.Tables[0].Rows[0]["CARGO"].ToString();
 		}
 	}

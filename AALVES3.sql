@@ -32,8 +32,8 @@ CREATE TABLE CARGO (
 	FUNC_CONS  BIT NOT NULL,
 	FUNC_EDIT  BIT NOT NULL,
 	ATIV_CRIAR BIT NOT NULL,
-	ATIV_EDIT  BIT NOT NULL,
 	ATIV_CONS  BIT NOT NULL,
+	ATIV_EDIT  BIT NOT NULL,
 	NOTA_ATRIB BIT NOT NULL,
 	NOTA_CONS  BIT NOT NULL
 )
@@ -142,9 +142,9 @@ CREATE TABLE PEDIDO (
 	QUANT   INT NOT NULL
 )
 GO
---INSERT INTO FUNCIONARIO VALUES('TESTE', 'TESTE', 'TESTE', 'TESTE', 'TESTE', 1, 'TESTE', 'TESTE', 'TESTE', 'TESTE', 'TESTE', 'TESTE', 'teste@com', 'teste', 1, DEFAULT)
+--INSERT INTO FUNCIONARIO VALUES('TESTE', 'TESTE', 'TESTE', 'TESTE', 'TESTE', 1, 'TESTE', 'TESTE', 'TESTE', 'TESTE', 'TESTE', 'TESTE', 'testet', 'teste', 3, DEFAULT)
 
---INSERT INTO CARGO VALUES('{0}', 'false', 'false', 'false', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true')
+--INSERT INTO CARGO VALUES('oi', 'false', 'false', 'false', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true', 'true')
 --select* from cargo
 --select * from FUNCIONARIO
 
