@@ -34,7 +34,8 @@ namespace TCC
 			dgvFunc.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 			//altera a cor das linhas alternadas no grid
 			dgvFunc.RowsDefaultCellStyle.BackColor = Color.White;
-			dgvFunc.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+			dgvFunc.AlternatingRowsDefaultCellStyle.BackColor = Color.LawnGreen;
+			;
 			//ao clicar, seleciona a linha inteira
 			dgvFunc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			//não permite seleção de multiplas linhas    

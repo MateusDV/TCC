@@ -82,25 +82,8 @@ namespace TCC
 
 		private void btnExibir_Click(object sender, EventArgs e)
 		{
-			String query;
-			if (rdbPessoais.Checked == true)
-			{
-				query = "SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME, ALUNO.SEXO, CURSO.NOME AS CURSO, PERIODO.NOME AS PERIODO FROM ALUNO INNER JOIN CURSO ON ALUNO.ID_CURSO=CURSO.ID_CURSO INNER JOIN PERIODO ON ALUNO.ID_PERIODO=PERIODO.ID_PERIODO;";
-			}
-			else if (rdbContato.Checked == true)
-			{
-				query = "SELECT ID_ALUNO AS ID, NOME, EMAIL, TELEFONE FROM ALUNO ";
-			}
-			else if (rdbEnd.Checked == true)
-			{
-				query = "SELECT ID_ALUNO AS ID, NOME, RUA, NUM, CEP, CIDADE, ESTADO FROM ALUNO";
-			}
-			else
-			{
-				query = "";
-				MessageBox.Show("Por favor selecione um modo de exibição.");
-			}
-			atualizar_grid(query);
+			Aluno.select(Checar.radioTag(grbExibir));
+			Grid.atualizarGrid(Aluno.Tabela, dgvAluno);
 		}
 
 		private void cmbExibe_SelectedIndexChanged(object sender, EventArgs e)

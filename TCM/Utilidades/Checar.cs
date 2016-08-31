@@ -17,5 +17,24 @@ namespace TCC
 
 			return (emptyTextboxes.Any() || emptyMask.Any()) ? true : false;
 		}
+
+		public static int radioTag(GroupBox grb)
+		{
+			string temp;
+			int tag;
+			var rCurso = grb.Controls.OfType<RadioButton>().Where(r => r.Checked).FirstOrDefault();
+
+			if(rCurso == null)
+			{
+				temp = "";
+				tag = 0;
+			}
+			else
+			{
+				temp = (string) rCurso.Tag;
+				tag = int.Parse(temp);
+			}
+			return tag;
+		}
 	}
 }

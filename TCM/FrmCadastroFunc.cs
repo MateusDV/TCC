@@ -80,27 +80,8 @@ namespace TCC
 				}
 				else
 				{
-					//checa o nome para ver se já nao existe
-					string check = string.Format("SELECT NOME FROM FUNCIONARIO WHERE NOME = '{0}'", nome);
-					ds = conexao.executarSQL(check);
-					int qnt = 0;
-					qnt = ds.Tables[0].Rows.Count;
-
-					if (qnt > 0) //se ja existe
-					{
-						MessageBox.Show("Esse funcionário já existe nos registros");
-					}
-					else //se nao existe
-					{
-						//MessageBox.Show(curso + "\n" + periodo);
-
-						conexao = new ClasseConexao();
-						ds = new DataSet();
-
-						string sql = String.Format("INSERT INTO FUNCIONARIO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha, cargo);
-						//MessageBox.Show(sql);
-						ds = conexao.executarSQL(sql);
-					}
+					int c = Funcionario.insert(nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha, cargo);
+					MessageBox.Show(c.ToString());
 				}
 			}
 			catch(Exception) { }
@@ -119,7 +100,7 @@ namespace TCC
 			txtCPF.Text = "25337075209";
 			txtEmail.Text = "fatimaC@gmail.com";
 			txtSenha.Text = "12345";
-			cmbCargo.Text = "Funcionario";
+			cmbCargo.SelectedIndex = 0;
 			txtRua.Text = "Marcos Silva";
 			txtNum.Text = "321";
 			txtBairro.Text = "Centro";

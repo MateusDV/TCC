@@ -62,7 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Checar.cs" />
+    <Compile Include="Utilidades\Checar.cs" />
     <Compile Include="ClasseConexao.cs" />
     <Compile Include="Compartilha.cs" />
     <Compile Include="FrmAtividades.cs">
@@ -131,7 +131,8 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Limpar.cs" />
+    <Compile Include="Utilidades\Grid.cs" />
+    <Compile Include="Utilidades\Limpar.cs" />
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\Atividade.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -147,7 +148,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Validar.cs" />
+    <Compile Include="Utilidades\Validar.cs" />
     <EmbeddedResource Include="FrmAtividades.resx">
       <DependentUpon>FrmAtividades.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +188,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

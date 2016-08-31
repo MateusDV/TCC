@@ -36,13 +36,13 @@ namespace TCC
 				Funcionario.select(id);
 				Cargo.select(Funcionario.Cargo);
 
-				if(!Cargo.ALUNO_CADS || !Cargo.ALUNO_CONS)
+				if(!Cargo.ALUNO_CADS && !Cargo.ALUNO_CONS)
 					alunoToolStripMenuItem.Visible = false;
 
-				if(!Cargo.PROF_CADS || !Cargo.PROF_CONS || !Cargo.NOTA_CONS || !Cargo.ATIV_CONS)
+				if(!Cargo.PROF_CADS && !Cargo.PROF_CONS && !Cargo.NOTA_CONS && !Cargo.ATIV_CONS)
 					professorToolStripMenuItem.Visible = false;
 
-				if(!Cargo.FUNC_CADS || !Cargo.FUNC_CONS)
+				if(!Cargo.FUNC_CADS && !Cargo.FUNC_CONS)
 					funcionárioToolStripMenuItem.Visible = false;
 
 				cadastrarMatricularToolStripMenuItem.Visible = Cargo.ALUNO_CADS;
@@ -55,6 +55,7 @@ namespace TCC
 
 				cadastrarToolStripMenuItem.Visible = Cargo.FUNC_CADS;
 				consultarToolStripMenuItem1.Visible = Cargo.FUNC_CONS;
+				cargosToolStripMenuItem.Visible = Cargo.FUNC_CADS;
 			}
 
 			tslBV.Text = String.Format("Seja bem vindo(a) {0}", comp.Nome);

@@ -81,7 +81,7 @@ namespace TCC
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			Limpar.ClearAllText(this);
+			Limpar.campos(this);
 		}
 
 		private void pictureBox1_Click(object sender, EventArgs e)

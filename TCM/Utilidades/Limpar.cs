@@ -9,7 +9,7 @@ namespace TCC
 {
 	class Limpar
 	{
-		public static void ClearAllText(Control con)
+		public static void campos(Control con)
 		{
 			foreach (Control c in con.Controls)
 			{
@@ -24,7 +24,7 @@ namespace TCC
 				else if(c is CheckBox)
 					((CheckBox) c).Checked = false;
 				else
-					ClearAllText(c);
+					campos(c);
 			}
 		}
 	}

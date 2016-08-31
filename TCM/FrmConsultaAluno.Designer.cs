@@ -29,7 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.dgvAluno = new System.Windows.Forms.DataGridView();
-			this.grpExibir = new System.Windows.Forms.GroupBox();
+			this.grbExibir = new System.Windows.Forms.GroupBox();
+			this.btnExibir = new System.Windows.Forms.Button();
 			this.rdbEnd = new System.Windows.Forms.RadioButton();
 			this.rdbContato = new System.Windows.Forms.RadioButton();
 			this.rdbPessoais = new System.Windows.Forms.RadioButton();
@@ -37,6 +38,7 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.btnPesquisa = new System.Windows.Forms.Button();
 			this.txtPesquisa = new System.Windows.Forms.TextBox();
 			this.cmbCampo = new System.Windows.Forms.ComboBox();
 			this.cmbExibe = new System.Windows.Forms.ComboBox();
@@ -47,14 +49,12 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.txtID = new System.Windows.Forms.TextBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.btnFechar = new System.Windows.Forms.Button();
 			this.btnExcluir = new System.Windows.Forms.Button();
 			this.btnAlterar = new System.Windows.Forms.Button();
-			this.btnPesquisa = new System.Windows.Forms.Button();
-			this.btnExibir = new System.Windows.Forms.Button();
+			this.label7 = new System.Windows.Forms.Label();
+			this.btnFechar = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAluno)).BeginInit();
-			this.grpExibir.SuspendLayout();
+			this.grbExibir.SuspendLayout();
 			this.grbPesquisa.SuspendLayout();
 			this.grbModificar.SuspendLayout();
 			this.SuspendLayout();
@@ -67,18 +67,29 @@
 			this.dgvAluno.Size = new System.Drawing.Size(771, 314);
 			this.dgvAluno.TabIndex = 0;
 			// 
-			// grpExibir
+			// grbExibir
 			// 
-			this.grpExibir.Controls.Add(this.btnExibir);
-			this.grpExibir.Controls.Add(this.rdbEnd);
-			this.grpExibir.Controls.Add(this.rdbContato);
-			this.grpExibir.Controls.Add(this.rdbPessoais);
-			this.grpExibir.Location = new System.Drawing.Point(13, 345);
-			this.grpExibir.Name = "grpExibir";
-			this.grpExibir.Size = new System.Drawing.Size(97, 148);
-			this.grpExibir.TabIndex = 1;
-			this.grpExibir.TabStop = false;
-			this.grpExibir.Text = "Informações";
+			this.grbExibir.Controls.Add(this.btnExibir);
+			this.grbExibir.Controls.Add(this.rdbEnd);
+			this.grbExibir.Controls.Add(this.rdbContato);
+			this.grbExibir.Controls.Add(this.rdbPessoais);
+			this.grbExibir.Location = new System.Drawing.Point(13, 345);
+			this.grbExibir.Name = "grbExibir";
+			this.grbExibir.Size = new System.Drawing.Size(97, 148);
+			this.grbExibir.TabIndex = 1;
+			this.grbExibir.TabStop = false;
+			this.grbExibir.Text = "Informações";
+			// 
+			// btnExibir
+			// 
+			this.btnExibir.BackgroundImage = global::TCC.Properties.Resources.EXIBIR_1;
+			this.btnExibir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnExibir.Location = new System.Drawing.Point(7, 111);
+			this.btnExibir.Name = "btnExibir";
+			this.btnExibir.Size = new System.Drawing.Size(85, 31);
+			this.btnExibir.TabIndex = 3;
+			this.btnExibir.UseVisualStyleBackColor = true;
+			this.btnExibir.Click += new System.EventHandler(this.btnExibir_Click);
 			// 
 			// rdbEnd
 			// 
@@ -88,6 +99,7 @@
 			this.rdbEnd.Size = new System.Drawing.Size(71, 17);
 			this.rdbEnd.TabIndex = 2;
 			this.rdbEnd.TabStop = true;
+			this.rdbEnd.Tag = "3";
 			this.rdbEnd.Text = "Endereço";
 			this.rdbEnd.UseVisualStyleBackColor = true;
 			// 
@@ -99,6 +111,7 @@
 			this.rdbContato.Size = new System.Drawing.Size(62, 17);
 			this.rdbContato.TabIndex = 1;
 			this.rdbContato.TabStop = true;
+			this.rdbContato.Tag = "2";
 			this.rdbContato.Text = "Contato";
 			this.rdbContato.UseVisualStyleBackColor = true;
 			// 
@@ -110,6 +123,7 @@
 			this.rdbPessoais.Size = new System.Drawing.Size(67, 17);
 			this.rdbPessoais.TabIndex = 0;
 			this.rdbPessoais.TabStop = true;
+			this.rdbPessoais.Tag = "1";
 			this.rdbPessoais.Text = "Pessoais";
 			this.rdbPessoais.UseVisualStyleBackColor = true;
 			// 
@@ -155,6 +169,17 @@
 			this.label1.Size = new System.Drawing.Size(47, 13);
 			this.label1.TabIndex = 4;
 			this.label1.Text = "Exibição";
+			// 
+			// btnPesquisa
+			// 
+			this.btnPesquisa.BackgroundImage = global::TCC.Properties.Resources.PESQUISAR_1;
+			this.btnPesquisa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnPesquisa.Location = new System.Drawing.Point(6, 111);
+			this.btnPesquisa.Name = "btnPesquisa";
+			this.btnPesquisa.Size = new System.Drawing.Size(85, 31);
+			this.btnPesquisa.TabIndex = 3;
+			this.btnPesquisa.UseVisualStyleBackColor = true;
+			this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
 			// 
 			// txtPesquisa
 			// 
@@ -249,27 +274,6 @@
 			this.txtID.Size = new System.Drawing.Size(90, 20);
 			this.txtID.TabIndex = 2;
 			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(319, 5);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(130, 17);
-			this.label7.TabIndex = 10;
-			this.label7.Text = "Consulta de Alunos";
-			// 
-			// btnFechar
-			// 
-			this.btnFechar.BackgroundImage = global::TCC.Properties.Resources.FECHAR_1;
-			this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnFechar.Location = new System.Drawing.Point(698, 462);
-			this.btnFechar.Name = "btnFechar";
-			this.btnFechar.Size = new System.Drawing.Size(85, 31);
-			this.btnFechar.TabIndex = 4;
-			this.btnFechar.UseVisualStyleBackColor = true;
-			this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-			// 
 			// btnExcluir
 			// 
 			this.btnExcluir.BackgroundImage = global::TCC.Properties.Resources.EXCLUIR_1;
@@ -293,27 +297,26 @@
 			this.btnAlterar.UseVisualStyleBackColor = true;
 			this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
 			// 
-			// btnPesquisa
+			// label7
 			// 
-			this.btnPesquisa.BackgroundImage = global::TCC.Properties.Resources.PESQUISAR_1;
-			this.btnPesquisa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnPesquisa.Location = new System.Drawing.Point(6, 111);
-			this.btnPesquisa.Name = "btnPesquisa";
-			this.btnPesquisa.Size = new System.Drawing.Size(85, 31);
-			this.btnPesquisa.TabIndex = 3;
-			this.btnPesquisa.UseVisualStyleBackColor = true;
-			this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.Location = new System.Drawing.Point(319, 5);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(130, 17);
+			this.label7.TabIndex = 10;
+			this.label7.Text = "Consulta de Alunos";
 			// 
-			// btnExibir
+			// btnFechar
 			// 
-			this.btnExibir.BackgroundImage = global::TCC.Properties.Resources.EXIBIR_1;
-			this.btnExibir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnExibir.Location = new System.Drawing.Point(7, 111);
-			this.btnExibir.Name = "btnExibir";
-			this.btnExibir.Size = new System.Drawing.Size(85, 31);
-			this.btnExibir.TabIndex = 3;
-			this.btnExibir.UseVisualStyleBackColor = true;
-			this.btnExibir.Click += new System.EventHandler(this.btnExibir_Click);
+			this.btnFechar.BackgroundImage = global::TCC.Properties.Resources.FECHAR_1;
+			this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnFechar.Location = new System.Drawing.Point(698, 462);
+			this.btnFechar.Name = "btnFechar";
+			this.btnFechar.Size = new System.Drawing.Size(85, 31);
+			this.btnFechar.TabIndex = 4;
+			this.btnFechar.UseVisualStyleBackColor = true;
+			this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
 			// 
 			// FrmConsultaAluno
 			// 
@@ -324,7 +327,7 @@
 			this.Controls.Add(this.btnFechar);
 			this.Controls.Add(this.grbModificar);
 			this.Controls.Add(this.grbPesquisa);
-			this.Controls.Add(this.grpExibir);
+			this.Controls.Add(this.grbExibir);
 			this.Controls.Add(this.dgvAluno);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FrmConsultaAluno";
@@ -332,8 +335,8 @@
 			this.Text = "FrmConsultaAluno";
 			this.Load += new System.EventHandler(this.FrmConsultaAluno_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvAluno)).EndInit();
-			this.grpExibir.ResumeLayout(false);
-			this.grpExibir.PerformLayout();
+			this.grbExibir.ResumeLayout(false);
+			this.grbExibir.PerformLayout();
 			this.grbPesquisa.ResumeLayout(false);
 			this.grbPesquisa.PerformLayout();
 			this.grbModificar.ResumeLayout(false);
@@ -346,7 +349,7 @@
 		#endregion
 
 		private System.Windows.Forms.DataGridView dgvAluno;
-		private System.Windows.Forms.GroupBox grpExibir;
+		private System.Windows.Forms.GroupBox grbExibir;
 		private System.Windows.Forms.Button btnExibir;
 		private System.Windows.Forms.RadioButton rdbEnd;
 		private System.Windows.Forms.RadioButton rdbContato;
