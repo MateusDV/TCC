@@ -53,7 +53,7 @@ namespace TCC
 			Boolean nota_con = checkBox14.Checked;
 
 			int fun = Cargo.insert(nome, aluno_cad, aluno_con, aluno_alt, prof_cad, prof_con, prof_alt, func_cad, func_con, func_alt, ativ_cri, ativ_con, ativ_alt, nota_atr, nota_con);
-			Limpar.ClearAllText(this);
+			Limpar.campos(this);
 			atualizar();
 
 			MessageBox.Show(fun.ToString());
@@ -95,7 +95,7 @@ namespace TCC
 			}
 			else
 			{
-				Limpar.ClearAllText(this);
+				Limpar.campos(this);
 				button1.Visible = true;
 				button5.Visible = false;
 			}
@@ -122,7 +122,7 @@ namespace TCC
 			int id = comboBox1.SelectedIndex;
 
 			int fun = Cargo.update(nome, aluno_cad, aluno_con, aluno_alt, prof_cad, prof_con, prof_alt, func_cad, func_con, func_alt, ativ_cri, ativ_con, ativ_alt, nota_atr, nota_con, id);
-			Limpar.ClearAllText(this);
+			Limpar.campos(this);
 			atualizar();
 			MessageBox.Show(fun.ToString());
 		}

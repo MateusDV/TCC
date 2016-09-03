@@ -1,0 +1,45 @@
+1.3  …
+-feita um pouco de organização (agrupamento) de algumas classes de
+utilidade geral
+-adicionada chave estrangeira de ID_Aluno na tabela pedidos
+-cadastro de funcionários agora está funcionando
+
+
+1.2.5  …
+-Alterada a posição dos campos editar e consultar atividade na tabela
+cargos
+-adicionado um botão na tela de cadastro de funcionário que dá acesso á
+tela de cargos
+-agora é possível alterar propriedades de um cargo
+
+
+1.2  …
+-Alterada a ordem de alguns campos no banco de dados
+-Adicionada classe checar, que é usada para detectar caixas de texto
+vazias nos formulários
+-Pequenas alterações na classe compartilha
+-Cadastro de alunos e professores agora está usando as models
+-Adicionado formulário de criação de cargos, mas ainda não está
+integrado no resto do programa
+-Login corrigido para funcionar apropriadamente com as permissões
+
+
+1.1.4  …
+Adicionada model da tabela cargo
+Login agora é funcional
+Algumas modificações na ordem das tabelas no banco de dados
+
+
+1.1.3  …
+Removidos arquivos não utilizados
+
+Leia-me será refeito no futuro
+
+
+1.1.2  …
+Adicionada tabela de cargos no banco de dados
+
+
+1.1  …
+Iniciada a conversão ao MVC
+Algumas mudanças no banco de dados sql

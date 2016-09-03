@@ -93,7 +93,7 @@ namespace TCC
 
 		private void btnLimpar_Click(object sender, EventArgs e)
 		{
-			Limpar.ClearAllText(this);
+			Limpar.campos(this);
 		}
 
 		private void btnCancelar_Click(object sender, EventArgs e)
