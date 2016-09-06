@@ -20,11 +20,6 @@ namespace TCC
 		private String[] End = { "ID_PROFESSOR", "NOME", "RUA", "NUM", "CEP", "CIDADE", "ESTADO" };
 		private String[] Prf = { "NOME", "SEXO", "RG", "CPF", "RUA", "NUM", "BAIRRO", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CELULAR", "EMAIL" };
 
-		public String[] getPes() { return Pes; }
-		public String[] getCon() { return Con; }
-		public String[] getEnd() { return End; }
-		public String[] getPrf() { return Prf; }
-
 		public FrmConsultaProf()
 		{
 			InitializeComponent();
@@ -86,11 +81,11 @@ namespace TCC
 			Compartilha comp = new Compartilha();
 			string nivel = comp.Tipo;
 
-			if (nivel.Equals("gerente", StringComparison.InvariantCultureIgnoreCase))
+			if(nivel.Equals("gerente", StringComparison.InvariantCultureIgnoreCase))
 			{
 
 			}
-			else if (nivel.Equals("professor", StringComparison.InvariantCultureIgnoreCase))
+			else if(nivel.Equals("professor", StringComparison.InvariantCultureIgnoreCase))
 			{
 
 			}
@@ -105,7 +100,7 @@ namespace TCC
 			cmbExibe.Items.Add("Contato");
 			cmbExibe.Items.Add("Endereço");
 
-			cmbAltCampo.Items.AddRange(getPrf());
+			cmbAltCampo.Items.AddRange(Prf);
 		}
 
 		private void btnExibir_Click(object sender, EventArgs e)
@@ -136,17 +131,17 @@ namespace TCC
 			if (cmbExibe.SelectedItem.Equals("Pessoais"))
 			{
 				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(getPes());
+				cmbCampo.Items.AddRange(Pes);
 			}
 			else if (cmbExibe.SelectedItem.Equals("Contato"))
 			{
 				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(getCon());
+				cmbCampo.Items.AddRange(Con);
 			}
 			else if (cmbExibe.SelectedItem.Equals("Endereço"))
 			{
 				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(getEnd());
+				cmbCampo.Items.AddRange(End);
 			}
 			else
 			{

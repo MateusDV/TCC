@@ -20,11 +20,6 @@ namespace TCC
 		private String[] End = { "ID_ALUNO", "NOME", "RUA", "NUM", "CEP", "CIDADE", "ESTADO" };
 		private String[] Aln = { "NOME", "EMAIL", "SEXO", "RUA", "NUM", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CURSO", "PERIODO" };
 
-		public String[] getPes() { return Pes; }
-		public String[] getCon() { return Con; }
-		public String[] getEnd() { return End; }
-		public String[] getAln() { return Aln; }
-
 		public FrmConsultaAluno()
 		{
 			InitializeComponent();
@@ -77,7 +72,7 @@ namespace TCC
 			cmbExibe.Items.Add("Contato");
 			cmbExibe.Items.Add("Endereço");
 
-			cmbAltCampo.Items.AddRange(getAln());
+			cmbAltCampo.Items.AddRange(Aln());
 		}
 
 		private void btnExibir_Click(object sender, EventArgs e)
@@ -91,17 +86,17 @@ namespace TCC
 			if (cmbExibe.SelectedItem.Equals("Pessoais"))
 			{
 				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(getPes());
+				cmbCampo.Items.AddRange(Pes);
 			}
 			else if (cmbExibe.SelectedItem.Equals("Contato"))
 			{
 				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(getCon());
+				cmbCampo.Items.AddRange(Con);
 			}
 			else if (cmbExibe.SelectedItem.Equals("Endereço"))
 			{
 				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(getEnd());
+				cmbCampo.Items.AddRange(End);
 			}
 			else
 			{

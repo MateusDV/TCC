@@ -68,3 +68,6 @@ G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmNotas.resources
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmPrincipal.resources
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.Properties.Resources.resources
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.csproj.GenerateResource.Cache
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\TCC.exe.config
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.exe
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.pdb
