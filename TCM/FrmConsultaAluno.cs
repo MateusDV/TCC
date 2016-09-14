@@ -109,6 +109,7 @@ namespace TCC
 			try
 			{
 				String query;
+				int exibe = cmbExibe.SelectedIndex + 1;
 				String campo = cmbCampo.SelectedItem.ToString();
 				String valor = txtPesquisa.Text;
 
@@ -232,14 +233,9 @@ namespace TCC
 						if (confirm.Equals(DialogResult.Yes))
 						{
 							conexao = new ClasseConexao();
-							ds = new DataSet();
 
 							//MessageBox.Show(query);
-							ds = conexao.executarSQL(query);
-						}
-						else
-						{
-							// If 'No', do something here.
+							conexao.executarSQL(query);
 						}
 					}
 				}

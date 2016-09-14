@@ -36,31 +36,34 @@ namespace TCC
 
 		public static int insert(String nome, String email, String sexo, String senha, String rua, int numero, String cep, String cidade, String estado, String telefone)
 		{
-			ClasseConexao conexao = new ClasseConexao();
-
 			int chec = 0;
-
-			string check = string.Format("SELECT NOME FROM ALUNO WHERE NOME = '{0}'", nome);
-			DataSet ds = conexao.executarSQL(check);
-			int qnt = 0;
-			qnt = ds.Tables[0].Rows.Count;
-
-			if(qnt > 0) //se ja existe
+			try
 			{
-				MessageBox.Show("Esse aluno já existe nos registros");
+				ClasseConexao conexao = new ClasseConexao();
+
+				string check = string.Format("SELECT NOME FROM ALUNO WHERE NOME = '{0}'", nome);
+				DataSet ds = conexao.executarSQL(check);
+				int qnt = 0;
+				qnt = ds.Tables[0].Rows.Count;
+
+				if(qnt > 0) //se ja existe
+				{
+					MessageBox.Show("Esse aluno já existe nos registros");
+				}
+				else //se nao existe
+				{
+					//MessageBox.Show(curso + "\n" + periodo);
+
+					conexao = new ClasseConexao();
+					ds = new DataSet();
+
+					string sql = string.Format("INSERT INTO ALUNO OUTPUT inserted.ID_ALUNO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}', DEFAULT)", nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
+					//MessageBox.Show(sql);
+					ds = conexao.executarSQL(sql);
+					chec = (int) ds.Tables[0].Rows[0]["ID_ALUNO"];
+				}
 			}
-			else //se nao existe
-			{
-				//MessageBox.Show(curso + "\n" + periodo);
-
-				conexao = new ClasseConexao();
-				ds = new DataSet();
-
-				string sql = string.Format("INSERT INTO ALUNO OUTPUT inserted.ID_ALUNO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}', DEFAULT)", nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
-				//MessageBox.Show(sql);
-				ds = conexao.executarSQL(sql);
-				chec = (int) ds.Tables[0].Rows[0]["ID_ALUNO"];
-			};
+			catch(Exception) { chec = 0; }
 			return chec;
 		}
 
@@ -102,6 +105,11 @@ PERIODO_ALUNO.ID_PERIODO = PERIODO.ID_PERIODO";
 				Tabela = ds.Tables[0];
 			}
 			catch(Exception) { }
+		}
+
+		public static void select(int tipo, string campo, string valor)
+		{
+
 		}
 	}
 }
