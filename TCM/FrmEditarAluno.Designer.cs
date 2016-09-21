@@ -43,9 +43,7 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.cmbSexo = new System.Windows.Forms.ComboBox();
-			this.txtSenha = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
 			this.txtNome = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtEmail = new System.Windows.Forms.TextBox();
@@ -60,6 +58,9 @@
 			this.rdbM = new System.Windows.Forms.RadioButton();
 			this.rdbN = new System.Windows.Forms.RadioButton();
 			this.label11 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.grbCurso.SuspendLayout();
@@ -192,9 +193,7 @@
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.cmbSexo);
-			this.groupBox1.Controls.Add(this.txtSenha);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.label13);
 			this.groupBox1.Controls.Add(this.txtNome);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.txtEmail);
@@ -215,13 +214,6 @@
 			this.cmbSexo.Size = new System.Drawing.Size(121, 21);
 			this.cmbSexo.TabIndex = 2;
 			// 
-			// txtSenha
-			// 
-			this.txtSenha.Location = new System.Drawing.Point(56, 100);
-			this.txtSenha.Name = "txtSenha";
-			this.txtSenha.Size = new System.Drawing.Size(288, 20);
-			this.txtSenha.TabIndex = 3;
-			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -230,15 +222,6 @@
 			this.label1.Size = new System.Drawing.Size(35, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Nome";
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(15, 103);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(38, 13);
-			this.label13.TabIndex = 40;
-			this.label13.Text = "Senha";
 			// 
 			// txtNome
 			// 
@@ -391,11 +374,43 @@
 			this.label11.TabIndex = 47;
 			this.label11.Text = "Editar Aluno";
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(13, 470);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 48;
+			this.button1.Text = "Alterar";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(107, 470);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.TabIndex = 49;
+			this.button2.Text = "Excluir";
+			this.button2.UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this.button3.Location = new System.Drawing.Point(708, 470);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(75, 23);
+			this.button3.TabIndex = 50;
+			this.button3.Text = "Cancelar";
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
+			// 
 			// FrmEditarAluno
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(795, 505);
+			this.Controls.Add(this.button3);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label11);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
@@ -405,6 +420,7 @@
 			this.Name = "FrmEditarAluno";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FrmEditarAluno";
+			this.Load += new System.EventHandler(this.FrmEditarAluno_Load);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
@@ -435,9 +451,7 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.ComboBox cmbSexo;
-		private System.Windows.Forms.TextBox txtSenha;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox txtNome;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtEmail;
@@ -452,5 +466,8 @@
 		private System.Windows.Forms.RadioButton rdbM;
 		private System.Windows.Forms.RadioButton rdbN;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button button3;
 	}
 }

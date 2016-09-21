@@ -52,18 +52,13 @@ namespace TCC
                 int curso;
                 int periodo;
 
-                //checa qual radio button está selecionado
-                var rCurso = grbCurso.Controls.OfType<RadioButton>().Where(r => r.Checked).FirstOrDefault();
-                if (rCurso == null) { curso = 0; }
-				else { curso = (int) rCurso.Tag; }
-                    
-                var rPeriodo = grbPeriodo.Controls.OfType<RadioButton>().Where(r => r.Checked).FirstOrDefault();
-				if(rPeriodo == null) { periodo = 0; }
-				else { periodo = (int) rPeriodo.Tag; }
+				//checa qual radio button está selecionado
+				curso = Checar.radioTag(grbCurso);
+				periodo = Checar.radioTag(grbPeriodo);
 					
 				//checa se os textbox, maskedtextbox estao vazios
 
-				if (Checar.textbox(this) || rCurso == null || rPeriodo == null)
+				if (Checar.textbox(this) || curso == 0 || periodo == 0)
 				{
 					MessageBox.Show("Por favor preencha todos os campos e selecione as opções apropriadas");
 				}

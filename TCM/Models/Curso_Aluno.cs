@@ -9,9 +9,6 @@ namespace TCC
 { 
 	public class Curso_Aluno
 	{
-		ClasseConexao conexao;
-		DataSet ds;
-
 		public static int ID_Aluno { get; private set; }
 
 		public static int ID_Curso { get; private set; }
@@ -23,6 +20,18 @@ namespace TCC
 			string sql = String.Format("INSERT INTO CURSO_ALUNO VALUES('{0}', '{1}')", ID_al, ID_cur);
 
 			return conexao.executarSQLNonQuery(sql);
+		}
+
+		public static void select(string idAluno)
+		{
+			ClasseConexao conexao = new ClasseConexao();
+			DataSet ds = new DataSet();
+
+			string query = string.Format("SELECT * FROM CURSO_ALUNO WHERE ID_ALUNO = '{0}'", idAluno);
+
+			ds = conexao.executarSQL(query);
+			ID_Aluno = (int) ds.Tables[0].Rows[0][0];
+			ID_Curso = (int) ds.Tables[0].Rows[0][1];
 		}
 	}
 }

@@ -22,16 +22,16 @@ namespace TCC
 		{
 			string temp;
 			int tag;
-			var rCurso = grb.Controls.OfType<RadioButton>().Where(r => r.Checked).FirstOrDefault();
+			var grbTag = grb.Controls.OfType<RadioButton>().Where(r => r.Checked).FirstOrDefault();
 
-			if(rCurso == null)
+			if(grbTag == null)
 			{
 				temp = "";
 				tag = 0;
 			}
 			else
 			{
-				temp = (string) rCurso.Tag;
+				temp = (string) grbTag.Tag;
 				tag = int.Parse(temp);
 			}
 			return tag;
