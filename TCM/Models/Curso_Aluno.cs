@@ -33,5 +33,18 @@ namespace TCC
 			ID_Aluno = (int) ds.Tables[0].Rows[0][0];
 			ID_Curso = (int) ds.Tables[0].Rows[0][1];
 		}
+
+		public static int update(int idCurso, int idAluno)
+		{
+			try
+			{
+				ClasseConexao conexao = new ClasseConexao();
+
+				string query = string.Format("UPDATE CURSO_ALUNO SET ID_CURSO = '{0}' WHERE ID_ALUNO = '{1}'", idCurso, idAluno);
+
+				return conexao.executarSQLNonQuery(query);
+			}
+			catch (Exception) { return 0; }
+		}
 	}
 }

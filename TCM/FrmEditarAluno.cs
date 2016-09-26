@@ -24,6 +24,7 @@ namespace TCC
 		{
 			Aluno.select(AlunoID.ToString());
 			Curso_Aluno.select(AlunoID.ToString());
+			Periodo_Aluno.select(AlunoID.ToString());
 
 			cmbSexo.Items.Add("M");
 			cmbSexo.Items.Add("F");
@@ -37,9 +38,10 @@ namespace TCC
 			txtCidade.Text = Aluno.Cidade;
 			txtEstado.Text = Aluno.Estado;
 			txtTelefone.Text = Aluno.Telefone;
+
 			foreach(RadioButton r in grbCurso.Controls)
 			{
-				if(r.Tag == (object) Curso_Aluno.ID_Curso)
+				if (r.Tag.ToString().Equals(Curso_Aluno.ID_Curso.ToString()))
 				{
 					r.Checked = true;
 				}
@@ -47,7 +49,7 @@ namespace TCC
 
 			foreach(RadioButton r in grbPeriodo.Controls)
 			{
-				if(r.Tag == (object) Periodo_Aluno.ID_Periodo)
+				if (r.Tag.ToString().Equals(Periodo_Aluno.ID_Periodo.ToString()))
 				{
 					r.Checked = true;
 				}
@@ -84,7 +86,11 @@ namespace TCC
 				}
 				else
 				{
-					Aluno.update(AlunoID.ToString(), nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
+					int al = Aluno.update(AlunoID.ToString(), nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
+					int cr = Curso_Aluno.update(curso, AlunoID);
+					MessageBox.Show(al + cr +"");
+
+					this.button3.Text = "Sair";
 				}
 			}
 			catch(Exception) { }
@@ -97,6 +103,16 @@ namespace TCC
 			frm.Show();
 			this.Hide();
 			this.Dispose();
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				int c = Aluno.delete(AlunoID);
+				MessageBox.Show(c+"");
+			}
+			catch (Exception) { }
 		}
 	}
 }

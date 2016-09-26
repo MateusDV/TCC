@@ -1,3 +1,25 @@
+1.4.0  …
+-Formulário de modificação/exclusão de alunos (quase) funcional (alguns
+controles ainda são placeholders)
+-desabilitadas funções de alterar e excluir no formulário de cadastro de
+aluno (agora o botão de alterar abre o novo formulário de
+alteração/exclusão)
+-algumas funções relacionadas aos radio buttons agora estão orientadas a
+objeto
+
+1.3.5  …
+Removida tabela matéria do banco de dados
+Tabela atividade agora é prova
+Tabela nota agora tem 4 valores diferentes(comportamento, listening,
+reading, speaking)
+
+1.3.2  …
+adicionados formularios de ediçao (nao funcionais)
+
+1.3.1  …
+-Adicionados diagramas (banco de dados terá que ser alterado)
+-excluidos arquivos nao necessarios
+
 1.3  …
 -feita um pouco de organização (agrupamento) de algumas classes de
 utilidade geral

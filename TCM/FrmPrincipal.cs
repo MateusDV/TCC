@@ -55,7 +55,7 @@ namespace TCC
 
 				cadastrarToolStripMenuItem.Visible = Cargo.FUNC_CADS;
 				consultarToolStripMenuItem1.Visible = Cargo.FUNC_CONS;
-				cargosToolStripMenuItem.Visible = Cargo.FUNC_CADS;
+				cargosToolStripMenuItem.Visible = false;
 			}
 
 			tslBV.Text = String.Format("Seja bem vindo(a) {0}", comp.Nome);

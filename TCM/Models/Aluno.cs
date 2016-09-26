@@ -115,6 +115,40 @@ WHERE ID_ALUNO = '{10}'", nome, email, sexo, senha, rua, numero, cep, cidade, es
 			catch(Exception) { return 0; }
 		}
 
+		public static int delete(int idAluno)
+		{
+			int f = 0;
+			try
+			{
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
+
+				string check = string.Format("SELECT * FROM ALUNO WHERE ID_ALUNO = '{0}'", idAluno);
+				string query = string.Format("DELETE FROM CURSO_ALUNO WHERE CURSO_ALUNO.ID_ALUNO = '{0}'; DELETE FROM PERIODO_ALUNO WHERE PERIODO_ALUNO.ID_ALUNO = '{0}'; DELETE FROM ALUNO WHERE ALUNO.ID_ALUNO = '{0}'", idAluno);
+				ds = conexao.executarSQL(check);
+				int qnt = 0;
+				qnt = ds.Tables[0].Rows.Count;
+
+				if (qnt > 0) //se ja existe
+				{
+					var confirm = MessageBox.Show("Tem certeza que deseja excluir o registro?", "Por favor confirmar", MessageBoxButtons.YesNo);
+					if (confirm.Equals(DialogResult.Yes))
+					{
+						conexao = new ClasseConexao();
+
+						//MessageBox.Show(query);
+						f = conexao.executarSQLNonQuery(query);
+					}
+				}
+				else //se nao existe
+				{
+					MessageBox.Show("Esse registro não existe!");
+				}
+			}
+			catch (Exception) { }
+			return f;
+		}
+
 		public static void select(string id)
 		{
 			try
