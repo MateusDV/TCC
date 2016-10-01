@@ -19,7 +19,7 @@ namespace TCC
 		private String[] Con = { "ID_ALUNO", "NOME", "EMAIL", "TELEFONE" };
 		private String[] End = { "ID_ALUNO", "NOME", "RUA", "NUM", "CEP", "CIDADE", "ESTADO" };
 		private String[] Aln = { "NOME", "EMAIL", "SEXO", "RUA", "NUM", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CURSO", "PERIODO" };
-
+         
 		private int idAluno;
 
 		public FrmConsultaAluno()
@@ -33,12 +33,12 @@ namespace TCC
 
 			cmbCampo.Items.AddRange(Aln);
 
-			cmbAltCampo.Items.AddRange(Aln);
+			//cmbAltCampo.Items.AddRange(Aln);
 
-			txtID.Enabled = false;
-			cmbAltCampo.Enabled = false;
-			txtAlt.Enabled = false;
-			btnExcluir.Enabled = false;
+			//txtID.Enabled = false;
+			//cmbAltCampo.Enabled = false;
+			//txtAlt.Enabled = false;
+			//btnExcluir.Enabled = false;
 		}
 
 		private void btnExibir_Click(object sender, EventArgs e)

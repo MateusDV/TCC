@@ -94,3 +94,23 @@ I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.csproj.GenerateResour
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.exe
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.pdb
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.csprojResolveAssemblyReference.cache
+C:\Users\ETESP\Desktop\TCC\TCM\bin\Debug\TCC.exe.config
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.exe
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.pdb
+C:\Users\ETESP\Desktop\TCC\TCM\bin\Debug\TCC.exe
+C:\Users\ETESP\Desktop\TCC\TCM\bin\Debug\TCC.pdb
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.csprojResolveAssemblyReference.cache
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmAtividades.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmCadastroAluno.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmCadastroProf.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmCargo.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmConsultaAluno.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmConsultaFunc.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmConsultaProf.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmEditarAluno.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmLogin.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmCadastroFunc.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmNotas.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmPrincipal.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.Properties.Resources.resources
+C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.csproj.GenerateResource.Cache

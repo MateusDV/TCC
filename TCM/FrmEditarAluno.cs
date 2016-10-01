@@ -97,8 +97,10 @@ namespace TCC
 		}
 
 		private void button3_Click(object sender, EventArgs e)
-		{
-			FrmConsultaAluno frm = new FrmConsultaAluno();
+        {
+            Aluno.Tabela.Clear();
+            Aluno.Tabela.Reset();
+            FrmConsultaAluno frm = new FrmConsultaAluno();
 			frm.MdiParent = this.MdiParent;
 			frm.Show();
 			this.Hide();
