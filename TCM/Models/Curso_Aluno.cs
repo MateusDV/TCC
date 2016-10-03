@@ -13,11 +13,15 @@ namespace TCC
 
 		public static int ID_Curso { get; private set; }
 
+		public static DateTime Cadastro { get; private set; }
+
+		public static DataTable tabela { get; private set; }
+
 		public static int insert(int ID_al, int ID_cur)
 		{
 			ClasseConexao conexao = new ClasseConexao();
 
-			string sql = String.Format("INSERT INTO CURSO_ALUNO VALUES('{0}', '{1}')", ID_al, ID_cur);
+			string sql = String.Format("INSERT INTO CURSO_ALUNO VALUES('{0}', '{1}', DEFAULT)", ID_al, ID_cur);
 
 			return conexao.executarSQLNonQuery(sql);
 		}
@@ -27,24 +31,13 @@ namespace TCC
 			ClasseConexao conexao = new ClasseConexao();
 			DataSet ds = new DataSet();
 
-			string query = string.Format("SELECT * FROM CURSO_ALUNO WHERE ID_ALUNO = '{0}'", idAluno);
+			string query = string.Format("SELECT * FROM CURSO_ALUNO WHERE ID_ALUNO = '{0}' ORDER BY YEAR(CADASTRO) DESC, MONTH(CADASTRO) DESC, DAY(CADASTRO) DESC", idAluno);
 
 			ds = conexao.executarSQL(query);
 			ID_Aluno = (int) ds.Tables[0].Rows[0][0];
 			ID_Curso = (int) ds.Tables[0].Rows[0][1];
-		}
-
-		public static int update(int idCurso, int idAluno)
-		{
-			try
-			{
-				ClasseConexao conexao = new ClasseConexao();
-
-				string query = string.Format("UPDATE CURSO_ALUNO SET ID_CURSO = '{0}' WHERE ID_ALUNO = '{1}'", idCurso, idAluno);
-
-				return conexao.executarSQLNonQuery(query);
-			}
-			catch (Exception) { return 0; }
+			Cadastro = (DateTime) ds.Tables[0].Rows[0][2];
+			tabela = ds.Tables[0];
 		}
 	}
 }

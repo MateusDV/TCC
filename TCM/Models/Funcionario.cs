@@ -45,6 +45,8 @@ namespace TCC
 
 		public static String Cargo { get; private set; }
 
+		public static DataTable Tabela { get; private set; }
+
 		public bool login(String email, String senha, out String id, out String tipo)
 		{
 			conexao = new ClasseConexao();
@@ -57,7 +59,7 @@ namespace TCC
 
 			int conta = ds.Tables[0].Rows.Count;
 
-			if (conta > 0)
+			if(conta > 0)
 			{
 				id = ds.Tables[0].Rows[0]["ID_FUNCIONARIO"].ToString();
 				tipo = "funcionario";
@@ -72,6 +74,32 @@ namespace TCC
 			}
 		}
 
+		public static int insert(String nome, String sexo, String rg, String cpf, String rua, int numero, String bairro, String cep, String cidade, String estado, String fone, String cel, String email, String senha, int cargo)
+		{
+			ClasseConexao conexao = new ClasseConexao();
+			DataSet ds = new DataSet();
+
+			int chec = 0;
+			string check = string.Format("SELECT NOME FROM FUNCIONARIO WHERE NOME = '{0}'", nome);
+			ds = conexao.executarSQL(check);
+			int qnt = 0;
+			qnt = ds.Tables[0].Rows.Count;
+
+			if(qnt > 0) //se ja existe
+			{
+				MessageBox.Show("Esse funcionário já existe nos registros");
+			}
+			else //se nao existe
+			{
+				conexao = new ClasseConexao();
+
+				string sql = String.Format("INSERT INTO FUNCIONARIO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}', {14}, DEFAULT)", nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha, cargo);
+				//MessageBox.Show(sql);
+				chec = conexao.executarSQLNonQuery(sql);
+			}
+			return chec;
+		}
+
 		public static void select(String id)
 		{
 			ClasseConexao conexao = new ClasseConexao();
@@ -80,6 +108,8 @@ namespace TCC
 			string sql = string.Format("SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = {0}", id);
 
 			ds = conexao.executarSQL(sql);
+
+			Tabela = ds.Tables[0];
 
 			ID_Funcionario = (int) ds.Tables[0].Rows[0]["ID_FUNCIONARIO"];
 			Nome = ds.Tables[0].Rows[0][1].ToString();
@@ -99,30 +129,71 @@ namespace TCC
 			Cargo = ds.Tables[0].Rows[0]["CARGO"].ToString();
 		}
 
-		public static int insert(String nome, String sexo, String rg, String cpf, String rua, int numero, String bairro, String cep, String cidade, String estado, String fone, String cel, String email, String senha, int cargo)
+		public static void select(int tipo)
 		{
-			ClasseConexao conexao = new ClasseConexao();
-			DataSet ds = new DataSet();
-
-			int chec = 0;
-			string check = string.Format("SELECT NOME FROM FUNCIONARIO WHERE NOME = '{0}'", nome);
-			ds = conexao.executarSQL(check);
-			int qnt = 0;
-			qnt = ds.Tables[0].Rows.Count;
-
-			if (qnt > 0) //se ja existe
+			try
 			{
-				MessageBox.Show("Esse funcionário já existe nos registros");
-			}
-			else //se nao existe
-			{
-				conexao = new ClasseConexao();
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
 
-				string sql = String.Format("INSERT INTO FUNCIONARIO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}', {14}, DEFAULT)", nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha, cargo);
-				//MessageBox.Show(sql);
-				chec = conexao.executarSQLNonQuery(sql);
+				string query;
+				if(tipo == 1)
+				{
+					query = "SELECT ID_FUNCIONARIO AS ID, NOME, SEXO, RG, CPF, CARGO, CADASTRO FROM FUNCIONARIO";
+				}
+				else if(tipo == 2)
+				{
+					query = "SELECT ID_FUNCIONARIO AS ID, NOME, EMAIL, TELEFONE, CELULAR FROM FUNCIONARIO";
+				}
+				else if(tipo == 3)
+				{
+					query = "SELECT ID_FUNCIONARIO AS ID, NOME, RUA, NUM, CEP, BAIRRO, CIDADE, ESTADO FROM FUNCIONARIO";
+				}
+				else
+				{
+					query = "";
+					MessageBox.Show("Por favor selecione um modo de exibição");
+				}
+
+				ds = conexao.executarSQL(query);
+				Tabela = ds.Tables[0];
 			}
-			return chec;
+			catch(Exception) { }
+		}
+
+		public static void select(int tipo, string campo, string valor)
+		{
+			try
+			{
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
+				String query;
+
+				if(tipo == 1)
+				{
+					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, SEXO, RG, CPF, CARGO, CADASTRO FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
+					//MessageBox.Show(query);
+				}
+				else if(tipo == 2)
+				{
+					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, EMAIL, TELEFONE, CELULAR FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
+					//MessageBox.Show(query);
+				}
+				else if(tipo == 3)
+				{
+					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, RUA, NUM, CEP, BAIRRO, CIDADE, ESTADO FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
+					//MessageBox.Show(query);
+				}
+				else
+				{
+					query = "";
+					MessageBox.Show("Por favor selecione um modo de exibição");
+				}
+
+				ds = conexao.executarSQL(query);
+				Tabela = ds.Tables[0];
+			}
+			catch(Exception) { }
 		}
 	}
 }

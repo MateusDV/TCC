@@ -114,3 +114,4 @@ C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmNotas.resources
 C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.FrmPrincipal.resources
 C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.Properties.Resources.resources
 C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.csproj.GenerateResource.Cache
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarFunc.resources

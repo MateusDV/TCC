@@ -191,6 +191,9 @@
     <EmbeddedResource Include="FrmEditarAluno.resx">
       <DependentUpon>FrmEditarAluno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarFunc.resx">
+      <DependentUpon>FrmEditarFunc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

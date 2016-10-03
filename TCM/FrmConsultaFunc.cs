@@ -64,206 +64,149 @@ namespace TCC
 
 		private void FrmConsultaFunc_Load(object sender, EventArgs e)
 		{
-			Compartilha comp = new Compartilha();
-			string nivel = comp.Tipo;
+			//Grid.atualizarGrid(Funcionario.Tabela, dgvFunc);
 
-			if (nivel.Equals("gerente", StringComparison.InvariantCultureIgnoreCase))
-			{
+			//cmbExibe.Items.Add("Pessoais");
+			//cmbExibe.Items.Add("Contato");
+			//cmbExibe.Items.Add("Endereço");
 
-			}
-			else if (nivel.Equals("professor", StringComparison.InvariantCultureIgnoreCase))
-			{
-				
-			}
-			else
-			{
-				grbModificar.Visible = false;
-			}
+			cmbCampo.Items.AddRange(Fun);
 
-			atualizar_grid("");
-
-			cmbExibe.Items.Add("Pessoais");
-			cmbExibe.Items.Add("Contato");
-			cmbExibe.Items.Add("Endereço");
-
-			cmbAltCampo.Items.AddRange(Fun);
+			btnAlterar.Visible = Cargo.FUNC_EDIT;
 		}
 
 		private void btnExibir_Click(object sender, EventArgs e)
 		{
-			String query;
-			if (rdbPessoais.Checked == true)
-			{
-				query = "SELECT ID_FUNCIONARIO AS ID, NOME, SEXO, RG, CPF, CARGO FROM FUNCIONARIO";
-			}
-			else if (rdbContato.Checked == true)
-			{
-				query = "SELECT ID_FUNCIONARIO AS ID, NOME, EMAIL, TELEFONE, CELULAR FROM FUNCIONARIO";
-			}
-			else if (rdbEnd.Checked == true)
-			{
-				query = "SELECT ID_FUNCIONARIO AS ID, NOME, RUA, NUM, CEP, BAIRRO, CIDADE, ESTADO FROM FUNCIONARIO";
-			}
-			else
-			{
-				query = "";
-				MessageBox.Show("Por favor selecione um modo de exibição.");
-			}
-			atualizar_grid(query);
-		}
-
-		private void cmbExibe_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (cmbExibe.SelectedItem.Equals("Pessoais"))
-			{
-				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(Pes);
-			}
-			else if (cmbExibe.SelectedItem.Equals("Contato"))
-			{
-				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(Con);
-			}
-			else if (cmbExibe.SelectedItem.Equals("Endereço"))
-			{
-				cmbCampo.Items.Clear();
-				cmbCampo.Items.AddRange(End);
-			}
-			else
-			{
-				cmbCampo.Items.Clear();
-			}
+			Funcionario.select(Checar.radioTag(grbExibir));
+			Grid.atualizarGrid(Funcionario.Tabela, dgvFunc);
+			//String query;
+			//if(rdbPessoais.Checked == true)
+			//{
+			//	query = "SELECT ID_FUNCIONARIO AS ID, NOME, SEXO, RG, CPF, CARGO FROM FUNCIONARIO";
+			//}
+			//else if(rdbContato.Checked == true)
+			//{
+			//	query = "SELECT ID_FUNCIONARIO AS ID, NOME, EMAIL, TELEFONE, CELULAR FROM FUNCIONARIO";
+			//}
+			//else if(rdbEnd.Checked == true)
+			//{
+			//	query = "SELECT ID_FUNCIONARIO AS ID, NOME, RUA, NUM, CEP, BAIRRO, CIDADE, ESTADO FROM FUNCIONARIO";
+			//}
+			//else
+			//{
+			//	query = "";
+			//	MessageBox.Show("Por favor selecione um modo de exibição.");
+			//}
+			//atualizar_grid(query);
 		}
 
 		private void btnPesquisa_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				String query;
 				String campo = cmbCampo.SelectedItem.ToString();
 				String valor = txtPesquisa.Text;
+				int tipo = Checar.radioTag(grbExibir);
 
-				if (cmbExibe.SelectedItem.Equals("Pessoais"))
-				{
-					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, SEXO, RG, CPF, CARGO FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
-					//MessageBox.Show(query);
-				}
-				else if (cmbExibe.SelectedItem.Equals("Contato"))
-				{
-					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, EMAIL, TELEFONE, CELULAR FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
-					//MessageBox.Show(query);
-				}
-				else if (cmbExibe.SelectedItem.Equals("Endereço"))
-				{
-					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, RUA, NUM, CEP, BAIRRO, CIDADE, ESTADO FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
-					//MessageBox.Show(query);
-				}
-				else
-				{
-					query = "";
-					MessageBox.Show("Por favor selecione um modo de exibição");
-				}
-				atualizar_grid(query);
+				Funcionario.select(tipo, campo, valor);
+				Grid.atualizarGrid(Funcionario.Tabela, dgvFunc);
 			}
-			catch (Exception) { }
+			catch(Exception) { }
 		}
 
 		private void btnAlterar_Click(object sender, EventArgs e)
 		{
-			try
-			{
-				String ID = txtID.Text;
-				String campo = cmbAltCampo.SelectedItem.ToString();
-				String valor = txtAlt.Text;
-				String query = "";
+			//try
+			//{
+			//	String ID = txtID.Text;
+			//	String campo = cmbAltCampo.SelectedItem.ToString();
+			//	String valor = txtAlt.Text;
+			//	String query = "";
 
-				query = String.Format("UPDATE FUNCIONARIO SET {0} = '{1}' WHERE ID_FUNCIONARIO = '{2}'", campo, valor, ID);
+			//	query = String.Format("UPDATE FUNCIONARIO SET {0} = '{1}' WHERE ID_FUNCIONARIO = '{2}'", campo, valor, ID);
 
-				var emptyTextboxes = from tb in this.Controls.OfType<TextBox>() where string.IsNullOrEmpty(tb.Text) select tb;
+			//	var emptyTextboxes = from tb in this.Controls.OfType<TextBox>() where string.IsNullOrEmpty(tb.Text) select tb;
 
-				if (emptyTextboxes.Any())
-				{
-					MessageBox.Show("Por favor tenha certeza de que todos os campos estão preenchidos.");
-				}
-				else
-				{
-					conexao = new ClasseConexao();
-					ds = new DataSet();
+			//	if(emptyTextboxes.Any())
+			//	{
+			//		MessageBox.Show("Por favor tenha certeza de que todos os campos estão preenchidos.");
+			//	}
+			//	else
+			//	{
+			//		conexao = new ClasseConexao();
+			//		ds = new DataSet();
 
-					string check = string.Format("SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = '{0}'", ID);
-					ds = conexao.executarSQL(check);
-					int qnt = 0;
-					qnt = ds.Tables[0].Rows.Count;
+			//		string check = string.Format("SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = '{0}'", ID);
+			//		ds = conexao.executarSQL(check);
+			//		int qnt = 0;
+			//		qnt = ds.Tables[0].Rows.Count;
 
-					if (qnt > 0)
-					{
-						var confirm = MessageBox.Show("Tem certeza que deseja alterar o registro?", "Por favor confirmar", MessageBoxButtons.YesNo);
-						if (confirm.Equals(DialogResult.Yes))
-						{
-							conexao = new ClasseConexao();
-							ds = new DataSet();
+			//		if(qnt > 0)
+			//		{
+			//			var confirm = MessageBox.Show("Tem certeza que deseja alterar o registro?", "Por favor confirmar", MessageBoxButtons.YesNo);
+			//			if(confirm.Equals(DialogResult.Yes))
+			//			{
+			//				conexao = new ClasseConexao();
+			//				ds = new DataSet();
 
-							//MessageBox.Show(query);
-							ds = conexao.executarSQL(query);
-						}
-						else
-						{
-							// If 'No', do something here.
-						}
-					}
-					else
-					{
-						MessageBox.Show("Por favor escolha um registro válido");
-					}
-				}
-			}
-			catch (Exception) { }
+			//				//MessageBox.Show(query);
+			//				ds = conexao.executarSQL(query);
+			//			}
+			//			else
+			//			{
+			//				// If 'No', do something here.
+			//			}
+			//		}
+			//		else
+			//		{
+			//			MessageBox.Show("Por favor escolha um registro válido");
+			//		}
+			//	}
+			//}
+			//catch(Exception) { }
 		}
 
-		private void btnExcluir_Click(object sender, EventArgs e)
-		{
-			conexao = new ClasseConexao();
-			ds = new DataSet();
-			try
-			{
-				String ID = txtID.Text;
-				String query = String.Format("DELETE FROM FUNCIONARIO WHERE ID_FUNCIONARIO = '{0}'", ID);
+	//	conexao = new ClasseConexao();
+	//	ds = new DataSet();
+	//		try
+	//		{
+	//			String ID = txtID.Text;
+	//	String query = String.Format("DELETE FROM FUNCIONARIO WHERE ID_FUNCIONARIO = '{0}'", ID);
 
-				if (txtID.Text.Equals("") || txtID.Text.Equals(null))
-				{
-					MessageBox.Show("Por favor digite um ID para continuar");
-				}
-				else
-				{
-					string check = string.Format("SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = '{0}'", ID);
-					ds = conexao.executarSQL(check);
-					int qnt = 0;
-					qnt = ds.Tables[0].Rows.Count;
+	//			if (txtID.Text.Equals("") || txtID.Text.Equals(null))
+	//			{
+	//				MessageBox.Show("Por favor digite um ID para continuar");
+	//			}
+	//			else
+	//			{
+	//				string check = string.Format("SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = '{0}'", ID);
+	//ds = conexao.executarSQL(check);
+	//				int qnt = 0;
+	//qnt = ds.Tables[0].Rows.Count;
 
-					if (qnt > 0) //se ja existe
-					{
-						var confirm = MessageBox.Show("Tem certeza que deseja excluir o registro?", "Por favor confirmar", MessageBoxButtons.YesNo);
-						if (confirm.Equals(DialogResult.Yes))
-						{
-							conexao = new ClasseConexao();
-							ds = new DataSet();
+	//				if (qnt > 0) //se ja existe
+	//				{
+	//					var confirm = MessageBox.Show("Tem certeza que deseja excluir o registro?", "Por favor confirmar", MessageBoxButtons.YesNo);
+	//					if (confirm.Equals(DialogResult.Yes))
+	//					{
+	//						conexao = new ClasseConexao();
+	//ds = new DataSet();
 
-							//MessageBox.Show(query);
-							ds = conexao.executarSQL(query);
-						}
-						else
-						{
-							// If 'No', do something here.
-						}
-					}
-					else //se nao existe
-					{
-						MessageBox.Show("Esse registro não existe!");
-					}
-				}
-			}
-			catch (Exception) { }
-		}
+	////MessageBox.Show(query);
+	//ds = conexao.executarSQL(query);
+	//					}
+	//					else
+	//					{
+	//						// If 'No', do something here.
+	//					}
+	//				}
+	//				else //se nao existe
+	//				{
+	//					MessageBox.Show("Esse registro não existe!");
+	//				}
+	//			}
+	//		}
+	//		catch (Exception) { }
 
 		private void btnFechar_Click(object sender, EventArgs e)
 		{

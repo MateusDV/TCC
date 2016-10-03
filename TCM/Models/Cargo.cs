@@ -9,9 +9,6 @@ namespace TCC
 {
 	public class Cargo
 	{
-		ClasseConexao conexao;
-		DataSet ds;
-
 		public static int ID_Cargo { get; private set; }
 
 		public static String Nome { get; private set; }

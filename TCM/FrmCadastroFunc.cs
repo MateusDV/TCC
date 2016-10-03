@@ -27,7 +27,6 @@ namespace TCC
 
         private void FrmCadastroFunc_Load(object sender, EventArgs e)
 		{ 
-
 			Cargo.select();
 
 			cmbSexo.Items.Add("M");

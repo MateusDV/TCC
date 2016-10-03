@@ -87,7 +87,8 @@ namespace TCC
 				else
 				{
 					int al = Aluno.update(AlunoID.ToString(), nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
-					int cr = Curso_Aluno.update(curso, AlunoID);
+					int cr = Curso_Aluno.insert(curso, AlunoID);
+					int pr = Periodo_Aluno.insert(periodo, AlunoID);
 					MessageBox.Show(al + cr +"");
 
 					this.button3.Text = "Sair";

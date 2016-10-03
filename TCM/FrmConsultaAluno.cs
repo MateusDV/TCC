@@ -12,9 +12,6 @@ namespace TCC
 {
 	public partial class FrmConsultaAluno : Form
 	{
-		ClasseConexao conexao;
-		DataSet ds;
-
 		private String[] Pes = { "ID_ALUNO", "NOME", "SEXO", "CURSO", "PERIODO" };
 		private String[] Con = { "ID_ALUNO", "NOME", "EMAIL", "TELEFONE" };
 		private String[] End = { "ID_ALUNO", "NOME", "RUA", "NUM", "CEP", "CIDADE", "ESTADO" };
@@ -33,12 +30,7 @@ namespace TCC
 
 			cmbCampo.Items.AddRange(Aln);
 
-			//cmbAltCampo.Items.AddRange(Aln);
-
-			//txtID.Enabled = false;
-			//cmbAltCampo.Enabled = false;
-			//txtAlt.Enabled = false;
-			//btnExcluir.Enabled = false;
+			btnAlterar.Visible = Cargo.ALUNO_EDIT;
 		}
 
 		private void btnExibir_Click(object sender, EventArgs e)
