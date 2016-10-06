@@ -141,7 +141,7 @@ namespace TCC
 			String SelAluno = "SELECT ID_ALUNO AS ID, NOME FROM ALUNO";
 			String SelAtiv;
 			String SelNota;
-			String nivel = comp.Tipo;
+			String nivel = comp.Cargo;
 
 			if (nivel.Equals("professor", StringComparison.InvariantCultureIgnoreCase))
 			{
@@ -174,7 +174,7 @@ namespace TCC
 				{
 					if (cmbCampo.SelectedIndex == 1)
 					{
-						if (comp.Tipo.Equals("professor"))
+						if (comp.Cargo.Equals("professor"))
 						{
 							query = String.Format("SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME AS ALUNO, ATIVIDADE.NOME AS ATIVIDADE, NOTA.VALOR AS NOTA FROM ALUNO INNER JOIN NOTA ON ALUNO.ID_ALUNO = NOTA.ID_ALUNO INNER JOIN ATIVIDADE ON NOTA.ID_ATIV = ATIVIDADE.ID_ATIV WHERE ATIVIDADE.ID_PROFESSOR = '{0}' AND ALUNO.NOME LIKE '{1}%'", comp.Id, valor);
 						}
@@ -185,7 +185,7 @@ namespace TCC
 					}
 					else if (cmbCampo.SelectedIndex == 2)
 					{
-						if (comp.Tipo.Equals("professor"))
+						if (comp.Cargo.Equals("professor"))
 						{
 							query = String.Format("SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME AS ALUNO, ATIVIDADE.NOME AS ATIVIDADE, NOTA.VALOR AS NOTA FROM ALUNO INNER JOIN NOTA ON ALUNO.ID_ALUNO = NOTA.ID_ALUNO INNER JOIN ATIVIDADE ON NOTA.ID_ATIV = ATIVIDADE.ID_ATIV WHERE ATIVIDADE.ID_PROFESSOR = '{0}' AND ATIVIDADE.NOME LIKE '{1}%'", comp.Id, valor);
 						}
@@ -196,7 +196,7 @@ namespace TCC
 					}
 					else
 					{
-						if (comp.Tipo.Equals("professor"))
+						if (comp.Cargo.Equals("professor"))
 						{
 							query = String.Format("SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME AS ALUNO, ATIVIDADE.NOME AS ATIVIDADE, NOTA.VALOR AS NOTA FROM ALUNO INNER JOIN NOTA ON ALUNO.ID_ALUNO = NOTA.ID_ALUNO INNER JOIN ATIVIDADE ON NOTA.ID_ATIV = ATIVIDADE.ID_ATIV WHERE ATIVIDADE.ID_PROFESSOR = '{0}' AND NOTA.{1} LIKE '{2}%'", comp.Id, campo, valor);
 						}
@@ -214,7 +214,7 @@ namespace TCC
 				}
 				else if (tabela.Equals("Atividade"))
 				{
-					if (comp.Tipo.Equals("professor"))
+					if (comp.Cargo.Equals("professor"))
 					{
 						query = String.Format("SELECT ID_ATIV AS ID, NOME, DESCRICAO FROM ATIVIDADE WHERE ID_PROFESSOR = '{0}' AND {1} LIKE '{2}%'", comp.Id, campo, valor);
 					}

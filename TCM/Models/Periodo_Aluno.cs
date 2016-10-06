@@ -19,11 +19,19 @@ namespace TCC
 
 		public static int insert(int ID_al, int ID_per)
 		{
-			ClasseConexao conexao = new ClasseConexao();
+			try
+			{
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
 
-			string sql = String.Format("INSERT INTO PERIODO_ALUNO VALUES('{0}', '{1}', DEFAULT)", ID_al, ID_per);
+				string sql = "USP_PERIODO_ALUNO_INSERIR";
+				string[] campos = { "ID_ALUNO", "ID_PERIODO" };
+				string[] valores = { ID_al.ToString(), ID_per.ToString() };
 
-			return conexao.executarSQLNonQuery(sql);
+				ds = conexao.executarProcedure(sql, campos, valores);
+				return (int)ds.Tables[0].Rows[0][0];
+			}
+			catch (Exception) { return 0; }
 		}
 
 		public static void select(string idAluno)

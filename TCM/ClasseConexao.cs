@@ -18,8 +18,8 @@ namespace TCC
             {
                 //String strConexao = String.Format("Password=12345; Persist Security Info=True; User ID=sa; Initial Catalog=AALVES; Data Source={0}", Environment.MachineName);
 
-                String user = "sa";
-                String pass = "12345";
+                String user = "aluno";
+                String pass = "etesp";
                 String banco = "AALVES3";
                 String maquina = Environment.MachineName;
 
@@ -87,5 +87,38 @@ namespace TCC
 				desconectar();
 			}
 		}
+
+        public DataSet executarProcedure(string sql, string[] parametros, string[] valores)
+        {
+            DataSet ds = new DataSet();
+			try
+			{
+				SqlCommand cmd = new SqlCommand();
+				SqlDataAdapter adaptador = new SqlDataAdapter();
+				try
+				{
+					string nomeParam = "";
+					cmd = new SqlCommand(sql, conectar());
+					cmd.CommandType = CommandType.StoredProcedure;
+					for (int i = 0; i < parametros.Length; i++)
+					{
+						nomeParam = String.Format("@{0}", parametros[i]);
+						SqlParameter param = new SqlParameter(nomeParam, valores[i]);
+						param.Direction = ParameterDirection.Input;
+						param.DbType = DbType.String;
+						cmd.Parameters.Add(param);
+					}
+					adaptador.SelectCommand = cmd;
+					adaptador.Fill(ds);
+				}
+				catch (Exception) { }
+				return ds;
+			}
+			catch (Exception) { return null; }
+			finally 
+			{
+				desconectar();
+			}
+        }
 	}
 }

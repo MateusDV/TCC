@@ -21,7 +21,7 @@ namespace TCC
 
 		private void FrmPrincipal_Load(object sender, EventArgs e)
 		{
-			string tipo = comp.Tipo;
+			string tipo = comp.Cargo;
 			string id = comp.Id;
 
 			if (tipo.Equals("professor", StringComparison.InvariantCultureIgnoreCase))

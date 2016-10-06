@@ -36,35 +36,51 @@ namespace TCC
 
 		public static int insert(String nome, String email, String sexo, String senha, String rua, int numero, String cep, String cidade, String estado, String telefone)
 		{
-			int chec = 0;
 			try
 			{
 				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
+				string nomeProc = "USP_ALUNO_INSERIR";
+				string[] campos = { "NOME", "EMAIL", "SEXO", "SENHA", "RUA", "NUM", "CEP", "CIDADE", "ESTADO", "TELEFONE" };
+				string[] valores = { nome, email, sexo, senha, rua, numero.ToString(), cep, cidade, estado, telefone };
 
-				string check = string.Format("SELECT NOME FROM ALUNO WHERE NOME = '{0}'", nome);
-				DataSet ds = conexao.executarSQL(check);
-				int qnt = 0;
-				qnt = ds.Tables[0].Rows.Count;
-
-				if(qnt > 0) //se ja existe
-				{
-					MessageBox.Show("Esse aluno já existe nos registros");
-				}
-				else //se nao existe
-				{
-					//MessageBox.Show(curso + "\n" + periodo);
-
-					conexao = new ClasseConexao();
-					ds = new DataSet();
-
-					string sql = string.Format("INSERT INTO ALUNO OUTPUT inserted.ID_ALUNO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}', DEFAULT)", nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
-					//MessageBox.Show(sql);
-					ds = conexao.executarSQL(sql);
-					chec = (int) ds.Tables[0].Rows[0]["ID_ALUNO"];
-				}
+				ds = conexao.executarProcedure(nomeProc, campos, valores);
+				return (int) ds.Tables[0].Rows[0][0];
 			}
-			catch(Exception) { chec = 0; }
-			return chec;
+			catch (Exception) { return 0; }
+			
+
+
+
+			//int chec = 0;
+			//try
+			//{
+			//	ClasseConexao conexao = new ClasseConexao();
+
+			//	string check = string.Format("SELECT NOME FROM ALUNO WHERE NOME = '{0}'", nome);
+			//	DataSet ds = conexao.executarSQL(check);
+			//	int qnt = 0;
+			//	qnt = ds.Tables[0].Rows.Count;
+
+			//	if(qnt > 0) //se ja existe
+			//	{
+			//		MessageBox.Show("Esse aluno já existe nos registros");
+			//	}
+			//	else //se nao existe
+			//	{
+			//		//MessageBox.Show(curso + "\n" + periodo);
+
+			//		conexao = new ClasseConexao();
+			//		ds = new DataSet();
+
+			//		string sql = string.Format("INSERT INTO ALUNO OUTPUT inserted.ID_ALUNO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}', DEFAULT)", nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
+			//		//MessageBox.Show(sql);
+			//		ds = conexao.executarSQL(sql);
+			//		chec = (int) ds.Tables[0].Rows[0]["ID_ALUNO"];
+			//	}
+			//}
+			//catch(Exception) { chec = 0; }
+			//return chec;
 		}
 
 		public static int update(String id, String nome, String email, String sexo, String senha, String rua, int numero, String cep, String cidade, String estado, String telefone)

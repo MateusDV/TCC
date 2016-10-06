@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,15 +7,10 @@ namespace TCC
 {
     public class Compartilha
     {
-        private static string tipo; //pegar no login e usar em outros lugares
+        //pegar no login e usar em outros lugares
 		private static string id;
 		private static string nome;
-
-		public string Tipo
-		{
-			get { return tipo; }
-			set { tipo = value; }
-		}
+		private static string cargo;
 
 		public string Id
 		{
@@ -28,6 +22,12 @@ namespace TCC
 		{
 			get { return nome; }
 			set { nome = value; }
+		}
+
+		public string Cargo
+		{
+			get { return cargo; }
+			set { cargo = value; }
 		}
 	}
 }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TCC
@@ -47,29 +43,29 @@ namespace TCC
 
 		public static DataTable Tabela { get; private set; }
 
-		public bool login(String email, String senha, out String id, out String tipo)
+		public bool login(String email, String senha)
 		{
 			conexao = new ClasseConexao();
 			ds = new DataSet();
 			Compartilha comp = new Compartilha();
 
-			string sql = String.Format("SELECT * FROM FUNCIONARIO WHERE EMAIL = '{0}' AND SENHA = '{1}'", email, senha);
+			string sql = String.Format("USP_PROG_LOGIN");
+            string[] param = { "EMAIL", "SENHA" };
+            string[] valores = { email, senha };
 
-			ds = conexao.executarSQL(sql);
+			ds = conexao.executarProcedure(sql, param, valores);
 
 			int conta = ds.Tables[0].Rows.Count;
 
 			if(conta > 0)
 			{
-				id = ds.Tables[0].Rows[0]["ID_FUNCIONARIO"].ToString();
-				tipo = "funcionario";
-				comp.Nome = ds.Tables[0].Rows[0]["NOME"].ToString();
+                comp.Id = ds.Tables[0].Rows[0][0].ToString();
+                comp.Nome = ds.Tables[0].Rows[0][1].ToString();
+                comp.Cargo = ds.Tables[0].Rows[0][2].ToString();
 				return true;
 			}
 			else
 			{
-				id = "";
-				tipo = "";
 				return false;
 			}
 		}

@@ -40,14 +40,11 @@ namespace TCC
 
 			string email = txtUser.Text;
 			string senha = txtPass.Text;
-			string id = "";
-			string tipo = "";
+            //string id = "";
+            //string tipo = "";
 
-			if ((func.login(email, senha, out id, out tipo) == true) || (prof.login(email, senha, out id, out tipo) == true))
+			if (func.login(email, senha))
 			{
-				comp.Id = id;
-				comp.Tipo = tipo;
-
 				this.Hide();
 				FrmPrincipal frmPrincipal = new FrmPrincipal();
 				frmPrincipal.Show();

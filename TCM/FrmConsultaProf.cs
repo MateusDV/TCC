@@ -79,7 +79,7 @@ namespace TCC
 		private void FrmConsultaProf_Load(object sender, EventArgs e)
 		{
 			Compartilha comp = new Compartilha();
-			string nivel = comp.Tipo;
+			string nivel = comp.Cargo;
 
 			if(nivel.Equals("gerente", StringComparison.InvariantCultureIgnoreCase))
 			{
