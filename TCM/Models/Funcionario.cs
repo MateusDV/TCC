@@ -41,6 +41,8 @@ namespace TCC
 
 		public static String Cargo { get; private set; }
 
+		public static bool Ativo { get; private set; }
+
 		public static DataTable Tabela { get; private set; }
 
 		public bool login(String email, String senha)
@@ -72,28 +74,19 @@ namespace TCC
 
 		public static int insert(String nome, String sexo, String rg, String cpf, String rua, int numero, String bairro, String cep, String cidade, String estado, String fone, String cel, String email, String senha, int cargo)
 		{
-			ClasseConexao conexao = new ClasseConexao();
-			DataSet ds = new DataSet();
-
-			int chec = 0;
-			string check = string.Format("SELECT NOME FROM FUNCIONARIO WHERE NOME = '{0}'", nome);
-			ds = conexao.executarSQL(check);
-			int qnt = 0;
-			qnt = ds.Tables[0].Rows.Count;
-
-			if(qnt > 0) //se ja existe
+			try
 			{
-				MessageBox.Show("Esse funcionário já existe nos registros");
-			}
-			else //se nao existe
-			{
-				conexao = new ClasseConexao();
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
 
-				string sql = String.Format("INSERT INTO FUNCIONARIO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}', {14}, DEFAULT)", nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha, cargo);
-				//MessageBox.Show(sql);
-				chec = conexao.executarSQLNonQuery(sql);
+				string nomeProc = "USP_FUNC_INSERIR";
+				string[] campos = { "NOME", "SEXO", "RG", "CPF", "RUA", "NUM", "BAIRRO", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CELULAR", "EMAIL", "SENHA", "CARGO", "ATIVO" };
+				string[] valores = { nome, sexo, rg, cpf, rua, numero.ToString(), bairro, cep, cidade, estado, fone, cel, email, senha, cargo.ToString(), "1" };
+
+				ds = conexao.executarProcedure(nomeProc, campos, valores);
+				return (int) ds.Tables[0].Rows[0][0];
 			}
-			return chec;
+			catch(Exception) { return 0; }
 		}
 
 		public static void select(String id)

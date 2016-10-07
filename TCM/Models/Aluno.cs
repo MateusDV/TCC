@@ -31,6 +31,8 @@ namespace TCC
 		public static String Estado { get; private set; }
 
 		public static String Telefone { get; private set; }
+
+		public static bool Ativo { get; private set; }
 		
 		public static DataTable Tabela { get; private set; }
 
@@ -41,8 +43,8 @@ namespace TCC
 				ClasseConexao conexao = new ClasseConexao();
 				DataSet ds = new DataSet();
 				string nomeProc = "USP_ALUNO_INSERIR";
-				string[] campos = { "NOME", "EMAIL", "SEXO", "SENHA", "RUA", "NUM", "CEP", "CIDADE", "ESTADO", "TELEFONE" };
-				string[] valores = { nome, email, sexo, senha, rua, numero.ToString(), cep, cidade, estado, telefone };
+				string[] campos = { "NOME", "EMAIL", "SEXO", "SENHA", "RUA", "NUM", "CEP", "CIDADE", "ESTADO", "TELEFONE", "ATIVO" };
+				string[] valores = { nome, email, sexo, senha, rua, numero.ToString(), cep, cidade, estado, telefone , "1"};
 
 				ds = conexao.executarProcedure(nomeProc, campos, valores);
 				return (int) ds.Tables[0].Rows[0][0];
@@ -172,9 +174,11 @@ WHERE ID_ALUNO = '{10}'", nome, email, sexo, senha, rua, numero, cep, cidade, es
 				ClasseConexao conexao = new ClasseConexao();
 				DataSet ds = new DataSet();
 
-				string query = String.Format("select * from aluno where id_aluno = '{0}'", id);
+				string nomeProc = "USP_ALUNO_CONSULTAR_ID";
+				string[] campos = { "ID" };
+				string[] valor = { id };
 
-				ds = conexao.executarSQL(query);
+				ds = conexao.executarProcedure(nomeProc, campos, valor);
 
 				Tabela = ds.Tables[0];
 
@@ -199,34 +203,11 @@ WHERE ID_ALUNO = '{10}'", nome, email, sexo, senha, rua, numero, cep, cidade, es
 				ClasseConexao conexao = new ClasseConexao();
 				DataSet ds = new DataSet();
 
-				string query;
-				if(tipo == 1)
-				{
-					query = @"SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME, ALUNO.SEXO, CURSO.NOME AS CURSO, PERIODO.NOME AS PERIODO FROM ALUNO
-INNER JOIN CURSO_ALUNO ON
-ALUNO.ID_ALUNO = CURSO_ALUNO.ID_ALUNO
-INNER JOIN CURSO ON
-CURSO_ALUNO.ID_CURSO = CURSO.ID_CURSO
-INNER JOIN PERIODO_ALUNO ON
-ALUNO.ID_ALUNO = PERIODO_ALUNO.ID_ALUNO
-INNER JOIN PERIODO ON
-PERIODO_ALUNO.ID_PERIODO = PERIODO.ID_PERIODO";
-				}
-				else if(tipo == 2)
-				{
-					query = "SELECT ID_ALUNO AS ID, NOME, EMAIL, TELEFONE FROM ALUNO";
-				}
-				else if(tipo == 3)
-				{
-					query = "SELECT ID_ALUNO AS ID, NOME, RUA, NUM, CEP, CIDADE, ESTADO FROM ALUNO";
-				}
-				else
-				{
-					query = "";
-					MessageBox.Show("Por favor selecione um modo de exibição");
-				}
+				string nomeProc = "USP_ALUNO_CONSULTAR_TIPO";
+				string[] campos = { "TIPO" };
+				string[] valor = { tipo.ToString() };
 
-				ds = conexao.executarSQL(query);
+				ds = conexao.executarProcedure(nomeProc, campos, valor);
 				Tabela = ds.Tables[0];
 			}
 			catch(Exception) { }

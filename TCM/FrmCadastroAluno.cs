@@ -68,6 +68,11 @@ namespace TCC
 					int per = Periodo_Aluno.insert(id, periodo);
 					int cur = Curso_Aluno.insert(id, curso);
 
+					if(id == 0)
+					{
+						MessageBox.Show("Esse aluno já existe nos registros");
+					}
+
 					MessageBox.Show(per +" "+ cur);
 				}
             }
