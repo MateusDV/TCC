@@ -219,5 +219,35 @@ namespace TCC
 				frmCargo.MdiParent = this;
 			}
 		}
+
+		private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//nao permite duas instancias do mesmo formulario
+			if(Application.OpenForms.OfType<FrmRelatorios>().Count() > 0)
+			{
+				MessageBox.Show("O formulário já está aberto");
+			}
+			else
+			{
+				FrmRelatorios frm = new FrmRelatorios();
+				frm.Show();
+				frm.MdiParent = this;
+			}
+		}
+
+		private void gráficosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//nao permite duas instancias do mesmo formulario
+			if(Application.OpenForms.OfType<FrmGraficos>().Count() > 0)
+			{
+				MessageBox.Show("O formulário já está aberto");
+			}
+			else
+			{
+				FrmGraficos frm = new FrmGraficos();
+				frm.Show();
+				frm.MdiParent = this;
+			}
+		}
 	}
 }
