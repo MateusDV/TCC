@@ -12,9 +12,6 @@ namespace TCC
 {
 	public partial class FrmConsultaAluno : Form
 	{
-		private String[] Pes = { "ID_ALUNO", "NOME", "SEXO", "CURSO", "PERIODO" };
-		private String[] Con = { "ID_ALUNO", "NOME", "EMAIL", "TELEFONE" };
-		private String[] End = { "ID_ALUNO", "NOME", "RUA", "NUM", "CEP", "CIDADE", "ESTADO" };
 		private String[] Aln = { "NOME", "EMAIL", "SEXO", "RUA", "NUM", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CURSO", "PERIODO" };
          
 		private int idAluno;

@@ -123,3 +123,9 @@ C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\Rdl
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.exe
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.pdb
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.csprojResolveAssemblyReference.cache
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarFunc.resources
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmGraficos.resources
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmRelatorios.resources
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\RdlCompile.cache
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\RdlCompile.compiled

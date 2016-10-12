@@ -74,103 +74,103 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarAluno.cs">
+    <Compile Include="Forms\FrmEditarAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarAluno.Designer.cs">
+    <Compile Include="Forms\FrmEditarAluno.Designer.cs">
       <DependentUpon>FrmEditarAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarFunc.cs">
+    <Compile Include="Forms\FrmEditarFunc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarFunc.Designer.cs">
+    <Compile Include="Forms\FrmEditarFunc.Designer.cs">
       <DependentUpon>FrmEditarFunc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarProf.cs">
+    <Compile Include="Forms\FrmEditarProf.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarProf.Designer.cs">
+    <Compile Include="Forms\FrmEditarProf.Designer.cs">
       <DependentUpon>FrmEditarProf.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmGraficos.cs">
+    <Compile Include="Forms\FrmGraficos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGraficos.Designer.cs">
+    <Compile Include="Forms\FrmGraficos.Designer.cs">
       <DependentUpon>FrmGraficos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRelatorios.cs">
+    <Compile Include="Forms\FrmRelatorios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRelatorios.Designer.cs">
+    <Compile Include="Forms\FrmRelatorios.Designer.cs">
       <DependentUpon>FrmRelatorios.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\Checar.cs" />
     <Compile Include="ClasseConexao.cs" />
     <Compile Include="Compartilha.cs" />
-    <Compile Include="FrmAtividades.cs">
+    <Compile Include="Forms\FrmAtividades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAtividades.Designer.cs">
+    <Compile Include="Forms\FrmAtividades.Designer.cs">
       <DependentUpon>FrmAtividades.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCadastroAluno.cs">
+    <Compile Include="Forms\FrmCadastroAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCadastroAluno.Designer.cs">
+    <Compile Include="Forms\FrmCadastroAluno.Designer.cs">
       <DependentUpon>FrmCadastroAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCadastroProf.cs">
+    <Compile Include="Forms\FrmCadastroProf.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCadastroProf.Designer.cs">
+    <Compile Include="Forms\FrmCadastroProf.Designer.cs">
       <DependentUpon>FrmCadastroProf.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCargo.cs">
+    <Compile Include="Forms\FrmCargo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCargo.Designer.cs">
+    <Compile Include="Forms\FrmCargo.Designer.cs">
       <DependentUpon>FrmCargo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConsultaAluno.cs">
+    <Compile Include="Forms\FrmConsultaAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConsultaAluno.Designer.cs">
+    <Compile Include="Forms\FrmConsultaAluno.Designer.cs">
       <DependentUpon>FrmConsultaAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConsultaFunc.cs">
+    <Compile Include="Forms\FrmConsultaFunc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConsultaFunc.Designer.cs">
+    <Compile Include="Forms\FrmConsultaFunc.Designer.cs">
       <DependentUpon>FrmConsultaFunc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConsultaProf.cs">
+    <Compile Include="Forms\FrmConsultaProf.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConsultaProf.Designer.cs">
+    <Compile Include="Forms\FrmConsultaProf.Designer.cs">
       <DependentUpon>FrmConsultaProf.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCadastroFunc.cs">
+    <Compile Include="Forms\FrmCadastroFunc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCadastroFunc.Designer.cs">
+    <Compile Include="Forms\FrmCadastroFunc.Designer.cs">
       <DependentUpon>FrmCadastroFunc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNotas.cs">
+    <Compile Include="Forms\FrmNotas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNotas.Designer.cs">
+    <Compile Include="Forms\FrmNotas.Designer.cs">
       <DependentUpon>FrmNotas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipal.cs">
+    <Compile Include="Forms\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrincipal.Designer.cs">
+    <Compile Include="Forms\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\Grid.cs" />
@@ -191,49 +191,49 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\Validar.cs" />
-    <EmbeddedResource Include="FrmAtividades.resx">
+    <EmbeddedResource Include="Forms\FrmAtividades.resx">
       <DependentUpon>FrmAtividades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadastroAluno.resx">
+    <EmbeddedResource Include="Forms\FrmCadastroAluno.resx">
       <DependentUpon>FrmCadastroAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadastroProf.resx">
+    <EmbeddedResource Include="Forms\FrmCadastroProf.resx">
       <DependentUpon>FrmCadastroProf.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCargo.resx">
+    <EmbeddedResource Include="Forms\FrmCargo.resx">
       <DependentUpon>FrmCargo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConsultaAluno.resx">
+    <EmbeddedResource Include="Forms\FrmConsultaAluno.resx">
       <DependentUpon>FrmConsultaAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConsultaFunc.resx">
+    <EmbeddedResource Include="Forms\FrmConsultaFunc.resx">
       <DependentUpon>FrmConsultaFunc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConsultaProf.resx">
+    <EmbeddedResource Include="Forms\FrmConsultaProf.resx">
       <DependentUpon>FrmConsultaProf.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarAluno.resx">
+    <EmbeddedResource Include="Forms\FrmEditarAluno.resx">
       <DependentUpon>FrmEditarAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarFunc.resx">
+    <EmbeddedResource Include="Forms\FrmEditarFunc.resx">
       <DependentUpon>FrmEditarFunc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGraficos.resx">
+    <EmbeddedResource Include="Forms\FrmGraficos.resx">
       <DependentUpon>FrmGraficos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadastroFunc.resx">
+    <EmbeddedResource Include="Forms\FrmCadastroFunc.resx">
       <DependentUpon>FrmCadastroFunc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNotas.resx">
+    <EmbeddedResource Include="Forms\FrmNotas.resx">
       <DependentUpon>FrmNotas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipal.resx">
+    <EmbeddedResource Include="Forms\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRelatorios.resx">
+    <EmbeddedResource Include="Forms\FrmRelatorios.resx">
       <DependentUpon>FrmRelatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

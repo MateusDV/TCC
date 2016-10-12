@@ -20,7 +20,7 @@ namespace TCC
 
 		public static String Senha { get; private set; }
 
-		public static String Rua {	get; private set; }
+		public static String Rua { get; private set; }
 
 		public static int Num { get; private set; }
 
