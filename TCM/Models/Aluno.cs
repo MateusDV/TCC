@@ -50,39 +50,6 @@ namespace TCC
 				return (int) ds.Tables[0].Rows[0][0];
 			}
 			catch (Exception) { return 0; }
-			
-
-
-
-			//int chec = 0;
-			//try
-			//{
-			//	ClasseConexao conexao = new ClasseConexao();
-
-			//	string check = string.Format("SELECT NOME FROM ALUNO WHERE NOME = '{0}'", nome);
-			//	DataSet ds = conexao.executarSQL(check);
-			//	int qnt = 0;
-			//	qnt = ds.Tables[0].Rows.Count;
-
-			//	if(qnt > 0) //se ja existe
-			//	{
-			//		MessageBox.Show("Esse aluno já existe nos registros");
-			//	}
-			//	else //se nao existe
-			//	{
-			//		//MessageBox.Show(curso + "\n" + periodo);
-
-			//		conexao = new ClasseConexao();
-			//		ds = new DataSet();
-
-			//		string sql = string.Format("INSERT INTO ALUNO OUTPUT inserted.ID_ALUNO VALUES ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}', DEFAULT)", nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
-			//		//MessageBox.Show(sql);
-			//		ds = conexao.executarSQL(sql);
-			//		chec = (int) ds.Tables[0].Rows[0]["ID_ALUNO"];
-			//	}
-			//}
-			//catch(Exception) { chec = 0; }
-			//return chec;
 		}
 
 		public static int update(String id, String nome, String email, String sexo, String senha, String rua, int numero, String cep, String cidade, String estado, String telefone)
@@ -106,7 +73,7 @@ CEP = '{6}',
 CIDADE = '{7}',
 ESTADO = '{8}',
 TELEFONE = '{9}'
-WHERE ID_ALUNO = '{10}'", nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone, id);
+WHERE ID_ALUNO = '{10}' AND ATIVO = 1", nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone, id);
 
 				ds = conexao.executarSQL(check);
 
@@ -196,86 +163,42 @@ WHERE ID_ALUNO = '{10}'", nome, email, sexo, senha, rua, numero, cep, cidade, es
 			}
 			catch(Exception) { }
 		}
-		public static void select(int tipo)
+		public static void select(int tipo, int ativo)
+		{
+			
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
+
+				string nomeProc = "USP_ALUNO_CONSULTAR_TIPO";
+				string[] campos = { "TIPO", "ATIVO" };
+				string[] valor = { tipo.ToString(), ativo.ToString() };
+
+				ds = conexao.executarProcedure(nomeProc, campos, valor);
+				Tabela = ds.Tables[0];
+		}
+
+		public static void select(int tipo, int ativo, string campo, string valor)
 		{
 			try
 			{
 				ClasseConexao conexao = new ClasseConexao();
 				DataSet ds = new DataSet();
+				String query = "USP_ALUNO_CONSULTAR_ESPECIFICO";
+				string[] param = { "TIPO", "ATIVO", "CAMPO", "VALOR" };
+				string[] val = { tipo.ToString(), ativo.ToString(), campo, valor };
 
-				string nomeProc = "USP_ALUNO_CONSULTAR_TIPO";
-				string[] campos = { "TIPO" };
-				string[] valor = { tipo.ToString() };
+				ds = conexao.executarProcedure(query, param, val);
 
-				ds = conexao.executarProcedure(nomeProc, campos, valor);
-				Tabela = ds.Tables[0];
-			}
-			catch(Exception) { }
-		}
-
-		public static void select(int tipo, string campo, string valor)
-		{
-			ClasseConexao conexao = new ClasseConexao();
-			DataSet ds = new DataSet();
-			String query;
-
-			if(tipo == 1)
-			{
-				if(campo.Equals("CURSO"))
+				if(ds != null)
 				{
-					query = String.Format(@"SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME, ALUNO.SEXO, CURSO.NOME AS CURSO, PERIODO.NOME AS PERIODO FROM ALUNO
-INNER JOIN CURSO_ALUNO ON
-ALUNO.ID_ALUNO = CURSO_ALUNO.ID_ALUNO
-INNER JOIN CURSO ON
-CURSO_ALUNO.ID_CURSO = CURSO.ID_CURSO
-INNER JOIN PERIODO_ALUNO ON
-ALUNO.ID_ALUNO = PERIODO_ALUNO.ID_ALUNO
-INNER JOIN PERIODO ON
-PERIODO_ALUNO.ID_PERIODO = PERIODO.ID_PERIODO WHERE CURSO.NOME LIKE '{0}%'", valor);
-				}
-				else if(campo.Equals("PERIODO"))
-				{
-					query = String.Format(@"SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME, ALUNO.SEXO, CURSO.NOME AS CURSO, PERIODO.NOME AS PERIODO FROM ALUNO
-INNER JOIN CURSO_ALUNO ON
-ALUNO.ID_ALUNO = CURSO_ALUNO.ID_ALUNO
-INNER JOIN CURSO ON
-CURSO_ALUNO.ID_CURSO = CURSO.ID_CURSO
-INNER JOIN PERIODO_ALUNO ON
-ALUNO.ID_ALUNO = PERIODO_ALUNO.ID_ALUNO
-INNER JOIN PERIODO ON
-PERIODO_ALUNO.ID_PERIODO = PERIODO.ID_PERIODO WHERE PERIODO.NOME LIKE '{0}%'", valor);
+					Tabela = ds.Tables[0];
 				}
 				else
 				{
-					query = String.Format(@"SELECT ALUNO.ID_ALUNO AS ID, ALUNO.NOME, ALUNO.SEXO, CURSO.NOME AS CURSO, PERIODO.NOME AS PERIODO FROM ALUNO
-INNER JOIN CURSO_ALUNO ON
-ALUNO.ID_ALUNO = CURSO_ALUNO.ID_ALUNO
-INNER JOIN CURSO ON
-CURSO_ALUNO.ID_CURSO = CURSO.ID_CURSO
-INNER JOIN PERIODO_ALUNO ON
-ALUNO.ID_ALUNO = PERIODO_ALUNO.ID_ALUNO
-INNER JOIN PERIODO ON
-PERIODO_ALUNO.ID_PERIODO = PERIODO.ID_PERIODO WHERE ALUNO.{0} LIKE '%{1}%'", campo, valor);
+					MessageBox.Show("Por favor selecione um modo de exibição");
 				}
-				//MessageBox.Show(query);
 			}
-			else if(tipo == 2)
-			{
-				query = String.Format("SELECT ID_ALUNO AS ID, NOME, EMAIL, TELEFONE FROM ALUNO WHERE {0} LIKE '{1}%'", campo, valor);
-				//MessageBox.Show(query);
-			}
-			else if(tipo == 3)
-			{
-				query = String.Format("SELECT ID_ALUNO AS ID, NOME, RUA, NUM, CEP, CIDADE, ESTADO FROM ALUNO WHERE {0} LIKE '{1}%'", campo, valor);
-				//MessageBox.Show(query);
-			}
-			else
-			{
-				query = "";
-				MessageBox.Show("Por favor selecione um modo de exibição");
-			}
-			ds = conexao.executarSQL(query);
-			Tabela = ds.Tables[0];
+			catch(Exception) { }
 		}
 	}
 }

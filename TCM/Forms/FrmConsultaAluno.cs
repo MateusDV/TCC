@@ -32,7 +32,7 @@ namespace TCC
 
 		private void btnExibir_Click(object sender, EventArgs e)
 		{
-			Aluno.select(Checar.radioTag(grbExibir));
+			Aluno.select(Checar.radioTag(grbExibir), checkBox1.Checked ? 0 : 1);
 			Grid.atualizarGrid(Aluno.Tabela, dgvAluno);
 		}
 
@@ -44,7 +44,7 @@ namespace TCC
 				String campo = cmbCampo.SelectedItem.ToString();
 				String valor = txtPesquisa.Text;
 
-				Aluno.select(exibe, campo, valor);
+				Aluno.select(exibe, checkBox1.Checked ? 0 : 1, campo, valor);
 				Grid.atualizarGrid(Aluno.Tabela, dgvAluno);
 			}
 			catch (Exception) { }

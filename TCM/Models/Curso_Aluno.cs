@@ -39,7 +39,7 @@ namespace TCC
 			ClasseConexao conexao = new ClasseConexao();
 			DataSet ds = new DataSet();
 
-			string query = string.Format("SELECT * FROM CURSO_ALUNO WHERE ID_ALUNO = '{0}' ORDER BY YEAR(CADASTRO) DESC, MONTH(CADASTRO) DESC, DAY(CADASTRO) DESC", idAluno);
+			string query = string.Format("SELECT * FROM CURSO_ALUNO WHERE ID_ALUNO = '{0}' AND ATIVO = 1", idAluno);
 
 			ds = conexao.executarSQL(query);
 			ID_Aluno = (int) ds.Tables[0].Rows[0][0];

@@ -43,6 +43,7 @@
 			this.btnAlterar = new System.Windows.Forms.Button();
 			this.label7 = new System.Windows.Forms.Label();
 			this.btnFechar = new System.Windows.Forms.Button();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAluno)).BeginInit();
 			this.grbExibir.SuspendLayout();
 			this.grbPesquisa.SuspendLayout();
@@ -59,13 +60,14 @@
 			// 
 			// grbExibir
 			// 
+			this.grbExibir.Controls.Add(this.checkBox1);
 			this.grbExibir.Controls.Add(this.btnExibir);
 			this.grbExibir.Controls.Add(this.rdbEnd);
 			this.grbExibir.Controls.Add(this.rdbContato);
 			this.grbExibir.Controls.Add(this.rdbPessoais);
 			this.grbExibir.Location = new System.Drawing.Point(12, 25);
 			this.grbExibir.Name = "grbExibir";
-			this.grbExibir.Size = new System.Drawing.Size(176, 130);
+			this.grbExibir.Size = new System.Drawing.Size(176, 164);
 			this.grbExibir.TabIndex = 1;
 			this.grbExibir.TabStop = false;
 			this.grbExibir.Text = "Modo de exibção";
@@ -74,7 +76,7 @@
 			// 
 			this.btnExibir.BackgroundImage = global::TCC.Properties.Resources.EXIBIR_1;
 			this.btnExibir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnExibir.Location = new System.Drawing.Point(7, 89);
+			this.btnExibir.Location = new System.Drawing.Point(6, 125);
 			this.btnExibir.Name = "btnExibir";
 			this.btnExibir.Size = new System.Drawing.Size(84, 33);
 			this.btnExibir.TabIndex = 3;
@@ -124,7 +126,7 @@
 			this.grbPesquisa.Controls.Add(this.btnPesquisa);
 			this.grbPesquisa.Controls.Add(this.txtPesquisa);
 			this.grbPesquisa.Controls.Add(this.cmbCampo);
-			this.grbPesquisa.Location = new System.Drawing.Point(12, 161);
+			this.grbPesquisa.Location = new System.Drawing.Point(12, 231);
 			this.grbPesquisa.Name = "grbPesquisa";
 			this.grbPesquisa.Size = new System.Drawing.Size(176, 110);
 			this.grbPesquisa.TabIndex = 2;
@@ -180,7 +182,7 @@
 			// 
 			this.btnAlterar.BackgroundImage = global::TCC.Properties.Resources.ALTERAR_1;
 			this.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnAlterar.Location = new System.Drawing.Point(18, 277);
+			this.btnAlterar.Location = new System.Drawing.Point(18, 347);
 			this.btnAlterar.Name = "btnAlterar";
 			this.btnAlterar.Size = new System.Drawing.Size(85, 31);
 			this.btnAlterar.TabIndex = 0;
@@ -207,6 +209,16 @@
 			this.btnFechar.TabIndex = 4;
 			this.btnFechar.UseVisualStyleBackColor = true;
 			this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(7, 102);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(108, 17);
+			this.checkBox1.TabIndex = 4;
+			this.checkBox1.Text = "Mostrar históricos";
+			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
 			// FrmConsultaAluno
 			// 
@@ -251,5 +263,6 @@
 		private System.Windows.Forms.Button btnFechar;
 		private System.Windows.Forms.Button btnAlterar;
 		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.CheckBox checkBox1;
 	}
 }

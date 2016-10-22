@@ -59,7 +59,7 @@ namespace TCC
 
 			int conta = ds.Tables[0].Rows.Count;
 
-			if(conta > 0)
+			if((int) ds.Tables[0].Rows[0][0] !=0 )
 			{
                 comp.Id = ds.Tables[0].Rows[0][0].ToString();
                 comp.Nome = ds.Tables[0].Rows[0][1].ToString();
