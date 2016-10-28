@@ -218,6 +218,9 @@
     <EmbeddedResource Include="Forms\FrmEditarFunc.resx">
       <DependentUpon>FrmEditarFunc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEditarProf.resx">
+      <DependentUpon>FrmEditarProf.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmGraficos.resx">
       <DependentUpon>FrmGraficos.cs</DependentUpon>
     </EmbeddedResource>

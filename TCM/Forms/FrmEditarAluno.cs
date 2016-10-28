@@ -89,7 +89,7 @@ namespace TCC
 					int al = Aluno.update(AlunoID.ToString(), nome, email, sexo, senha, rua, numero, cep, cidade, estado, telefone);
 					int cr = Curso_Aluno.insert(curso, AlunoID);
 					int pr = Periodo_Aluno.insert(periodo, AlunoID);
-					MessageBox.Show(al + cr +"");
+					MessageBox.Show("AL" + al + "CR"+ cr +"PR" + pr);
 
 					this.button3.Text = "Sair";
 				}
@@ -99,8 +99,7 @@ namespace TCC
 
 		private void button3_Click(object sender, EventArgs e)
         {
-            Aluno.Tabela.Clear();
-            Aluno.Tabela.Reset();
+			Aluno.Tabela = new DataTable();
             FrmConsultaAluno frm = new FrmConsultaAluno();
 			frm.MdiParent = this.MdiParent;
 			frm.Show();
@@ -112,8 +111,8 @@ namespace TCC
 		{
 			try
 			{
-				int c = Aluno.delete(AlunoID);
-				MessageBox.Show(c+"");
+				int c = Aluno.delete(AlunoID.ToString());
+				MessageBox.Show(c + "");
 			}
 			catch (Exception) { }
 		}

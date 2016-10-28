@@ -43,7 +43,7 @@ namespace TCC
 			txtBairro.Text = Funcionario.Bairro;
 			txtCEP.Text = Funcionario.Cep;
 			txtCidade.Text = Funcionario.Cidade;
-			txtEstado.Text = Funcionario.Estado;
+			txtEstado.Text = Funcionario.Estado;              
 			txtFone.Text = Funcionario.Telefone;
 			txtCel.Text = Funcionario.Celular;
 		}
@@ -86,11 +86,27 @@ namespace TCC
 				}
 				else
 				{
-					int c = Funcionario.insert(nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha, cargo);
+					int c = Funcionario.update(Funcionario.ID_Funcionario, nome, sexo, rg, cpf, rua, numero, bairro, cep, cidade, estado, fone, cel, email, senha, cargo);
 					MessageBox.Show(c.ToString());
 				}
 			}
 			catch(Exception) { }
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			int c = Funcionario.delete(Funcionario.ID_Funcionario.ToString());
+			MessageBox.Show(c.ToString());
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			Funcionario.Tabela = new DataTable();
+			FrmConsultaFunc frm = new FrmConsultaFunc();
+			frm.MdiParent = this.MdiParent;
+			frm.Show();
+			this.Hide();
+			this.Dispose();
 		}
 	}
 }

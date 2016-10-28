@@ -20,7 +20,7 @@ namespace TCC
 			dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 			//altera a cor das linhas alternadas no grid
 			dgv.RowsDefaultCellStyle.BackColor = Color.White;
-			dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Aqua;
+			dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
 			//ao clicar, seleciona a linha inteira
 			dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			//não permite seleção de multiplas linhas    

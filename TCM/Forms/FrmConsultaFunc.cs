@@ -15,61 +15,17 @@ namespace TCC
 		ClasseConexao conexao;
 		DataSet ds;
 
-		private String[] Pes = { "ID_FUNCIONARIO", "NOME", "SEXO", "RG", "CPF", "CARGO" };
-		private String[] Con = { "ID_FUNCIONARIO", "NOME", "EMAIL", "TELEFONE" };
-		private String[] End = { "ID_FUNCIONARIO", "NOME", "RUA", "NUM", "CEP", "CIDADE", "ESTADO" };
 		private String[] Fun = { "NOME", "SEXO", "RG", "CPF", "CARGO", "RUA", "NUM", "BAIRRO", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CELULAR", "EMAIL" };
+
+		private int idFuncionario;
 
 		public FrmConsultaFunc()
 		{
 			InitializeComponent();
 		}
 
-		private void formataGrid()
-		{
-			//permite personalizar o grid
-			dgvFunc.AutoGenerateColumns = true;
-			dgvFunc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-			dgvFunc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-			dgvFunc.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-			//altera a cor das linhas alternadas no grid
-			dgvFunc.RowsDefaultCellStyle.BackColor = Color.White;
-			dgvFunc.AlternatingRowsDefaultCellStyle.BackColor = Color.LawnGreen;
-			;
-			//ao clicar, seleciona a linha inteira
-			dgvFunc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			//não permite seleção de multiplas linhas    
-			dgvFunc.MultiSelect = false;
-			//Expande a célula automáticamente
-			dgvFunc.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-			//read only
-			dgvFunc.ReadOnly = true;
-			dgvFunc.RowHeadersVisible = false;
-			dgvFunc.AllowUserToAddRows = false;
-		}
-
-		private void atualizar_grid(String sql)
-		{
-			if (sql.Equals(null) || sql.Equals(""))
-			{
-				//placeholder
-				sql = "SELECT TOP 0 0";
-			}
-			conexao = new ClasseConexao();
-			ds = new DataSet();
-			ds = conexao.executarSQL(sql);
-			dgvFunc.DataSource = ds.Tables[0];
-			formataGrid();
-		}
-
 		private void FrmConsultaFunc_Load(object sender, EventArgs e)
 		{
-			//Grid.atualizarGrid(Funcionario.Tabela, dgvFunc);
-
-			//cmbExibe.Items.Add("Pessoais");
-			//cmbExibe.Items.Add("Contato");
-			//cmbExibe.Items.Add("Endereço");
-
 			cmbCampo.Items.AddRange(Fun);
 
 			btnAlterar.Visible = Cargo.FUNC_EDIT;
@@ -77,7 +33,7 @@ namespace TCC
 
 		private void btnExibir_Click(object sender, EventArgs e)
 		{
-			Funcionario.select(Checar.radioTag(grbExibir));
+			Funcionario.select(Checar.radioTag(grbExibir), checkBox1.Checked ? 0 : 1);
 			Grid.atualizarGrid(Funcionario.Tabela, dgvFunc);
 			//String query;
 			//if(rdbPessoais.Checked == true)
@@ -108,7 +64,7 @@ namespace TCC
 				String valor = txtPesquisa.Text;
 				int tipo = Checar.radioTag(grbExibir);
 
-				Funcionario.select(tipo, campo, valor);
+				Funcionario.select(tipo, checkBox1.Checked ? 0 : 1, campo, valor);
 				Grid.atualizarGrid(Funcionario.Tabela, dgvFunc);
 			}
 			catch(Exception) { }
@@ -164,6 +120,19 @@ namespace TCC
 			//	}
 			//}
 			//catch(Exception) { }
+
+			if (idFuncionario != 0)
+			{
+				FrmEditarFunc frm = new FrmEditarFunc(idFuncionario);
+				frm.MdiParent = this.MdiParent;
+				frm.Show();
+				this.Hide();
+				this.Dispose();
+			}
+			else
+			{
+				MessageBox.Show("Por favor selecione um funcionario da lista para poder alterar");
+			}
 		}
 
 	//	conexao = new ClasseConexao();
@@ -207,10 +176,17 @@ namespace TCC
 	//			}
 	//		}
 	//		catch (Exception) { }
-
+		
 		private void btnFechar_Click(object sender, EventArgs e)
 		{
 			this.Close();
+
 		}
+
+		private void dgvFunc_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			idFuncionario = (int)dgvFunc.Rows[e.RowIndex].Cells[0].Value;
+		}
+
 	}
 }

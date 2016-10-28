@@ -43,7 +43,7 @@ namespace TCC
 
 		public static bool Ativo { get; private set; }
 
-		public static DataTable Tabela { get; private set; }
+		public static DataTable Tabela { get; set; }
 
 		public bool login(String email, String senha)
 		{
@@ -89,14 +89,64 @@ namespace TCC
 			catch(Exception) { return 0; }
 		}
 
+		public static int update(int id, String nome, String sexo, String rg, String cpf, String rua, int numero, String bairro, String cep, String cidade, String estado, String fone, String cel, String email, String senha, int cargo)
+		{
+			try
+			{
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
+				string nomeProc = "USP_FUNC_ALTERAR";
+				string[] campos = { "ID_FUNCIONARIO", "NOME", "SEXO", "RG", "CPF", "RUA", "NUM", "BAIRRO", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CELULAR", "EMAIL", "SENHA", "CARGO", "ATIVO" };
+				string[] valores = { id.ToString(), nome, sexo, rg, cpf, rua, numero.ToString(), bairro, cep, cidade, estado, fone, cel, email, senha, cargo.ToString(), "1" };
+
+				var confirm = MessageBox.Show("Tem certeza que deseja alterar o registro?", "Por favor confirmar", MessageBoxButtons.YesNo);
+				if (confirm.Equals(DialogResult.Yes))
+				{
+					ds = conexao.executarProcedure(nomeProc, campos, valores);
+					return (int)ds.Tables[0].Rows[0][0];
+				}
+				else
+				{
+					return 0;
+				}
+			}
+			catch (Exception) { return 0; }
+		}
+
+		public static int delete(string idFuncionario)
+		{
+			try
+			{
+				ClasseConexao conexao = new ClasseConexao();
+				DataSet ds = new DataSet();
+				string nomeProc = "USP_FUNC_DESATIVAR";
+				string[] campos = { "ID_FUNCIONARIO" };
+				string[] valores = { idFuncionario };
+
+				var confirm = MessageBox.Show("Tem certeza que deseja desativar o registro?", "Por favor confirmar", MessageBoxButtons.YesNo);
+				if (confirm.Equals(DialogResult.Yes))
+				{
+					ds = conexao.executarProcedure(nomeProc, campos, valores);
+					return (int)ds.Tables[0].Rows[0][0];
+				}
+				else
+				{
+					return 0;
+				}
+			}
+			catch (Exception) { return 0; }
+		}
+
 		public static void select(String id)
 		{
 			ClasseConexao conexao = new ClasseConexao();
 			DataSet ds = new DataSet();
 
-			string sql = string.Format("SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = {0}", id);
+			string nomeProc = "USP_FUNC_CONSULTAR_ID";
+			string[] campos = { "ID" };
+			string[] valor = { id };
 
-			ds = conexao.executarSQL(sql);
+			ds = conexao.executarProcedure(nomeProc, campos, valor);
 
 			Tabela = ds.Tables[0];
 
@@ -118,71 +168,45 @@ namespace TCC
 			Cargo = ds.Tables[0].Rows[0]["CARGO"].ToString();
 		}
 
-		public static void select(int tipo)
+		public static void select(int tipo, int ativo)
 		{
 			try
 			{
 				ClasseConexao conexao = new ClasseConexao();
 				DataSet ds = new DataSet();
 
-				string query;
-				if(tipo == 1)
-				{
-					query = "SELECT ID_FUNCIONARIO AS ID, NOME, SEXO, RG, CPF, CARGO, CADASTRO FROM FUNCIONARIO";
-				}
-				else if(tipo == 2)
-				{
-					query = "SELECT ID_FUNCIONARIO AS ID, NOME, EMAIL, TELEFONE, CELULAR FROM FUNCIONARIO";
-				}
-				else if(tipo == 3)
-				{
-					query = "SELECT ID_FUNCIONARIO AS ID, NOME, RUA, NUM, CEP, BAIRRO, CIDADE, ESTADO FROM FUNCIONARIO";
-				}
-				else
-				{
-					query = "";
-					MessageBox.Show("Por favor selecione um modo de exibição");
-				}
+				string nomeProc = "USP_FUNC_CONSULTAR_TIPO";
+				string[] campos = { "TIPO", "ATIVO" };
+				string[] valor = { tipo.ToString(), ativo.ToString() };
 
-				ds = conexao.executarSQL(query);
+				ds = conexao.executarProcedure(nomeProc, campos, valor);
 				Tabela = ds.Tables[0];
 			}
-			catch(Exception) { }
+			catch (Exception) { }
 		}
 
-		public static void select(int tipo, string campo, string valor)
+		public static void select(int tipo, int ativo, string campo, string valor)
 		{
 			try
 			{
 				ClasseConexao conexao = new ClasseConexao();
 				DataSet ds = new DataSet();
-				String query;
+				String query = "USP_FUNC_CONSULTAR_ESPECIFICO";
+				string[] param = { "TIPO", "ATIVO", "CAMPO", "VALOR" };
+				string[] val = { tipo.ToString(), ativo.ToString(), campo, valor };
 
-				if(tipo == 1)
+				ds = conexao.executarProcedure(query, param, val);
+
+				if (ds != null)
 				{
-					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, SEXO, RG, CPF, CARGO, CADASTRO FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
-					//MessageBox.Show(query);
-				}
-				else if(tipo == 2)
-				{
-					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, EMAIL, TELEFONE, CELULAR FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
-					//MessageBox.Show(query);
-				}
-				else if(tipo == 3)
-				{
-					query = String.Format("SELECT ID_FUNCIONARIO AS ID, NOME, RUA, NUM, CEP, BAIRRO, CIDADE, ESTADO FROM FUNCIONARIO WHERE {0} LIKE '{1}%'", campo, valor);
-					//MessageBox.Show(query);
+					Tabela = ds.Tables[0];
 				}
 				else
 				{
-					query = "";
 					MessageBox.Show("Por favor selecione um modo de exibição");
 				}
-
-				ds = conexao.executarSQL(query);
-				Tabela = ds.Tables[0];
 			}
-			catch(Exception) { }
+			catch (Exception) { }
 		}
 	}
 }

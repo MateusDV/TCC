@@ -39,9 +39,11 @@ namespace TCC
 			ClasseConexao conexao = new ClasseConexao();
 			DataSet ds = new DataSet();
 
-			string query = string.Format("SELECT * FROM CURSO_ALUNO WHERE ID_ALUNO = '{0}' AND ATIVO = 1", idAluno);
+			string sql = "USP_CURSO_ALUNO_CONSULTAR";
+			string[] campos = { "ID_ALUNO" };
+			string[] valores = { idAluno };
 
-			ds = conexao.executarSQL(query);
+			ds = conexao.executarProcedure(sql, campos, valores);
 			ID_Aluno = (int) ds.Tables[0].Rows[0][0];
 			ID_Curso = (int) ds.Tables[0].Rows[0][1];
 			Cadastro = (DateTime) ds.Tables[0].Rows[0][2];

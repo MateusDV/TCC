@@ -37,6 +37,7 @@
 			this.txtPesquisa = new System.Windows.Forms.TextBox();
 			this.cmbCampo = new System.Windows.Forms.ComboBox();
 			this.grbExibir = new System.Windows.Forms.GroupBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.btnExibir = new System.Windows.Forms.Button();
 			this.rdbEnd = new System.Windows.Forms.RadioButton();
 			this.rdbContato = new System.Windows.Forms.RadioButton();
@@ -52,7 +53,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(431, 2);
+			this.label7.Location = new System.Drawing.Point(408, 2);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(168, 17);
 			this.label7.TabIndex = 10;
@@ -76,7 +77,7 @@
 			this.grbPesquisa.Controls.Add(this.btnPesquisa);
 			this.grbPesquisa.Controls.Add(this.txtPesquisa);
 			this.grbPesquisa.Controls.Add(this.cmbCampo);
-			this.grbPesquisa.Location = new System.Drawing.Point(12, 158);
+			this.grbPesquisa.Location = new System.Drawing.Point(12, 181);
 			this.grbPesquisa.Name = "grbPesquisa";
 			this.grbPesquisa.Size = new System.Drawing.Size(177, 110);
 			this.grbPesquisa.TabIndex = 14;
@@ -130,22 +131,33 @@
 			// 
 			// grbExibir
 			// 
+			this.grbExibir.Controls.Add(this.checkBox1);
 			this.grbExibir.Controls.Add(this.btnExibir);
 			this.grbExibir.Controls.Add(this.rdbEnd);
 			this.grbExibir.Controls.Add(this.rdbContato);
 			this.grbExibir.Controls.Add(this.rdbPessoais);
 			this.grbExibir.Location = new System.Drawing.Point(12, 22);
 			this.grbExibir.Name = "grbExibir";
-			this.grbExibir.Size = new System.Drawing.Size(177, 130);
+			this.grbExibir.Size = new System.Drawing.Size(177, 153);
 			this.grbExibir.TabIndex = 13;
 			this.grbExibir.TabStop = false;
 			this.grbExibir.Text = "Modo de exibção";
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(6, 91);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(108, 17);
+			this.checkBox1.TabIndex = 4;
+			this.checkBox1.Text = "Mostrar históricos";
+			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
 			// btnExibir
 			// 
 			this.btnExibir.BackgroundImage = global::TCC.Properties.Resources.EXIBIR_1;
 			this.btnExibir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnExibir.Location = new System.Drawing.Point(7, 89);
+			this.btnExibir.Location = new System.Drawing.Point(6, 114);
 			this.btnExibir.Name = "btnExibir";
 			this.btnExibir.Size = new System.Drawing.Size(84, 33);
 			this.btnExibir.TabIndex = 3;
@@ -195,12 +207,13 @@
 			this.dgvFunc.Name = "dgvFunc";
 			this.dgvFunc.Size = new System.Drawing.Size(588, 471);
 			this.dgvFunc.TabIndex = 11;
+			this.dgvFunc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFunc_CellClick);
 			// 
 			// btnAlterar
 			// 
 			this.btnAlterar.BackgroundImage = global::TCC.Properties.Resources.ALTERAR_1;
 			this.btnAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnAlterar.Location = new System.Drawing.Point(18, 274);
+			this.btnAlterar.Location = new System.Drawing.Point(17, 297);
 			this.btnAlterar.Name = "btnAlterar";
 			this.btnAlterar.Size = new System.Drawing.Size(85, 31);
 			this.btnAlterar.TabIndex = 12;
@@ -249,5 +262,6 @@
 		private System.Windows.Forms.RadioButton rdbPessoais;
 		private System.Windows.Forms.DataGridView dgvFunc;
 		private System.Windows.Forms.Button btnAlterar;
+		private System.Windows.Forms.CheckBox checkBox1;
 	}
 }
