@@ -10,9 +10,6 @@ namespace TCC
 {
 	public class Professor
 	{
-		ClasseConexao conexao;
-		DataSet ds;
-
 		public static int ID_Professor { get; private set; }
 
 		public static String Nome { get; private set; }

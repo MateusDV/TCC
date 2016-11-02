@@ -63,22 +63,10 @@ namespace TCC
 		private void FrmAtividades_Load(object sender, EventArgs e)
 		{
 			String nivel = comp.Cargo;
-			String id = comp.Id;
+			String id;
 
-			if (nivel.Equals("gerente", StringComparison.InvariantCultureIgnoreCase))
-			{
-				grbCriar.Enabled = false;
-				grbMod.Enabled = false;
-			}
-			else if (nivel.Equals("professor", StringComparison.InvariantCultureIgnoreCase))
-			{
-
-			}
-			else
-			{
-				grbCriar.Visible = false;
-				grbMod.Visible = false;
-			}
+			grbCriar.Visible =  Cargo.ATIV_CRIAR;
+			grbMod.Visible = Cargo.ATIV_EDIT;
 
 			cmbCampo.Items.AddRange(ativ);
 			cmbCampoMod.Items.AddRange(ativ);
@@ -86,6 +74,18 @@ namespace TCC
 			cmbCampoMod.Items.Remove("ID_PROFESSOR");
 
 			lblCar.Text = "100";
+
+			if(nivel.Equals("PROFESSOR"))
+			{
+				id = comp.Id;
+			}
+			else
+			{
+				id = "0";
+			}
+
+			Prova.select(int.Parse(id));
+			Grid.atualizarGrid(Prova.Tabela, dgvAtiv);
 		}
 
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace TCC
 			String nivel = comp.Cargo;
 			String id = comp.Id;
 
-			if (cmbCampo.SelectedItem.Equals("ID_PROFESSOR") && nivel.Equals("Professor", StringComparison.InvariantCultureIgnoreCase))
+			if (cmbCampo.SelectedItem.Equals("ID_PROFESSOR") && nivel.Equals("PROFESSOR"))
 			{
 				txtValor.Text = id;
 				txtValor.Enabled = false;
@@ -111,9 +111,9 @@ namespace TCC
 
 			String campo = cmbCampo.SelectedItem.ToString();
 			String valor = txtValor.Text;
-			String query = String.Format("SELECT * FROM ATIVIDADE WHERE {0} LIKE '{1}%'", campo, valor);
 
-			atualizar_grid(query);
+			Prova.select(campo, valor);
+			Grid.atualizarGrid(Prova.Tabela, dgvAtiv);
 		}
 
 		private void textBox2_TextChanged(object sender, EventArgs e)
@@ -127,9 +127,7 @@ namespace TCC
 			String desc = txtDesc.Text;
 			String id = comp.Id;
 
-			var emptyTextboxes = from tb in this.Controls.OfType<TextBox>() where string.IsNullOrEmpty(tb.Text) select tb;
-
-			if (emptyTextboxes.Any() || desc.Trim().Length > 100)
+			if (Checar.textbox(this) || desc.Trim().Length > 100)
 			{
 				MessageBox.Show("Por favor preencha o nome e a descrição, e tenha certeza que a descrição tenha menos de 100 caracteres");
 			}

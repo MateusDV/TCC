@@ -129,3 +129,4 @@ C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\Rdl
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.exe
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.pdb
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.csprojResolveAssemblyReference.cache
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarProf.resources

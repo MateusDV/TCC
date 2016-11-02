@@ -176,7 +176,7 @@
     <Compile Include="Utilidades\Grid.cs" />
     <Compile Include="Utilidades\Limpar.cs" />
     <Compile Include="Models\Aluno.cs" />
-    <Compile Include="Models\Atividade.cs" />
+    <Compile Include="Models\Prova.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Curso_Aluno.cs" />
     <Compile Include="Models\Funcionario.cs" />

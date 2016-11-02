@@ -12,9 +12,6 @@ namespace TCC
 {
 	public partial class FrmConsultaProf : Form
 	{
-		ClasseConexao conexao;
-		DataSet ds;
-
 		private int idProfessor;
 
 		private String[] Prf = { "NOME", "SEXO", "RG", "CPF", "RUA", "NUM", "BAIRRO", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CELULAR", "EMAIL" };
@@ -66,14 +63,14 @@ namespace TCC
 			}
 		}
 
-		private void btnFechar_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-
 		private void dgvProf_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			idProfessor = (int)dgvProf.Rows[e.RowIndex].Cells[0].Value;
+		}
+
+		private void btnFechar_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

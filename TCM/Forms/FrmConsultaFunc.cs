@@ -12,9 +12,6 @@ namespace TCC
 {
 	public partial class FrmConsultaFunc : Form
 	{
-		ClasseConexao conexao;
-		DataSet ds;
-
 		private String[] Fun = { "NOME", "SEXO", "RG", "CPF", "CARGO", "RUA", "NUM", "BAIRRO", "CEP", "CIDADE", "ESTADO", "TELEFONE", "CELULAR", "EMAIL" };
 
 		private int idFuncionario;
@@ -180,13 +177,11 @@ namespace TCC
 		private void btnFechar_Click(object sender, EventArgs e)
 		{
 			this.Close();
-
 		}
 
 		private void dgvFunc_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			idFuncionario = (int)dgvFunc.Rows[e.RowIndex].Cells[0].Value;
+			idFuncionario = (int) dgvFunc.Rows[e.RowIndex].Cells[0].Value;
 		}
-
 	}
 }
