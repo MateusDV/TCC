@@ -96,17 +96,26 @@ C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.Properties.Resources.resources
 C:\Users\ETESP\Desktop\TCC\TCM\obj\Debug\TCC.csproj.GenerateResource.Cache
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarAluno.resources
 G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarFunc.resources
-I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarFunc.resources
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmGraficos.resources
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmRelatorios.resources
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\RdlCompile.cache
 I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\RdlCompile.compiled
+G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmGraficos.resources
+G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmRelatorios.resources
+G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\RdlCompile.cache
+G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\RdlCompile.compiled
+G:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarProf.resources
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarProf.resources
+I:\Mateus\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.Forms.FrmAlterarSenha.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\TCC.exe.config
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\TCC.exe
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\TCC.pdb
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.csprojResolveAssemblyReference.cache
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.Forms.FrmAlterarSenha.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmAtividades.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmCadastroAluno.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmCadastroProf.resources
@@ -116,6 +125,7 @@ C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmConsultaProf.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarAluno.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarFunc.resources
+C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarProf.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmGraficos.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmLogin.resources
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmCadastroFunc.resources
@@ -128,5 +138,3 @@ C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\Rdl
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\RdlCompile.compiled
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.exe
 C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.pdb
-C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.csprojResolveAssemblyReference.cache
-C:\Users\mateu\Desktop\Pendrive\TÉCNICO\3° Módulo\PC II\TCC\TCM\obj\Debug\TCC.FrmEditarProf.resources

@@ -72,6 +72,19 @@ namespace TCC
 			}
 		}
 
+		public static int alterar_senha(int id, string cargo, string atual, string nova)
+		{
+			ClasseConexao conexao = new ClasseConexao();
+			DataSet ds = new DataSet();
+
+			string sql = "USP_FUNC_PROF_ALT_SENHA";
+			string[] campos = { "ID", "CARGO", "SENHA_ATUAL", "SENHA_NOVA" };
+			string[] valores = { id.ToString(), cargo, atual, nova };
+
+			ds = conexao.executarProcedure(sql, campos, valores);
+			return (int) ds.Tables[0].Rows[0][0];
+ 		}
+
 		public static int insert(String nome, String sexo, String rg, String cpf, String rua, int numero, String bairro, String cep, String cidade, String estado, String fone, String cel, String email, String senha, int cargo)
 		{
 			try

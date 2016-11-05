@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAtividades));
 			this.dgvAtiv = new System.Windows.Forms.DataGridView();
 			this.grbPesquisar = new System.Windows.Forms.GroupBox();
+			this.btnPesquisar = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtValor = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -42,20 +43,21 @@
 			this.txtDesc = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtNome = new System.Windows.Forms.TextBox();
+			this.button1 = new System.Windows.Forms.Button();
 			this.grbMod = new System.Windows.Forms.GroupBox();
-			this.label9 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
-			this.txtValorMod = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.cmbCampoMod = new System.Windows.Forms.ComboBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label12 = new System.Windows.Forms.Label();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.button2 = new System.Windows.Forms.Button();
+			this.btnMod = new System.Windows.Forms.Button();
 			this.label6 = new System.Windows.Forms.Label();
 			this.txtID = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.btnFechar = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.btnMod = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.btnPesquisar = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAtiv)).BeginInit();
 			this.grbPesquisar.SuspendLayout();
 			this.grbCriar.SuspendLayout();
@@ -80,10 +82,21 @@
 			this.grbPesquisar.Controls.Add(this.cmbCampo);
 			this.grbPesquisar.Location = new System.Drawing.Point(458, 12);
 			this.grbPesquisar.Name = "grbPesquisar";
-			this.grbPesquisar.Size = new System.Drawing.Size(325, 104);
+			this.grbPesquisar.Size = new System.Drawing.Size(325, 75);
 			this.grbPesquisar.TabIndex = 1;
 			this.grbPesquisar.TabStop = false;
 			this.grbPesquisar.Text = "Pesquisar";
+			// 
+			// btnPesquisar
+			// 
+			this.btnPesquisar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.BackgroundImage")));
+			this.btnPesquisar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnPesquisar.Location = new System.Drawing.Point(234, 36);
+			this.btnPesquisar.Name = "btnPesquisar";
+			this.btnPesquisar.Size = new System.Drawing.Size(85, 31);
+			this.btnPesquisar.TabIndex = 4;
+			this.btnPesquisar.UseVisualStyleBackColor = true;
+			this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
 			// 
 			// label2
 			// 
@@ -129,7 +142,7 @@
 			this.grbCriar.Controls.Add(this.label3);
 			this.grbCriar.Controls.Add(this.txtNome);
 			this.grbCriar.Controls.Add(this.button1);
-			this.grbCriar.Location = new System.Drawing.Point(458, 122);
+			this.grbCriar.Location = new System.Drawing.Point(458, 93);
 			this.grbCriar.Name = "grbCriar";
 			this.grbCriar.Size = new System.Drawing.Size(325, 159);
 			this.grbCriar.TabIndex = 2;
@@ -169,7 +182,7 @@
 			this.txtDesc.Name = "txtDesc";
 			this.txtDesc.Size = new System.Drawing.Size(242, 55);
 			this.txtDesc.TabIndex = 3;
-			this.txtDesc.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+			this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
 			// 
 			// label3
 			// 
@@ -187,71 +200,122 @@
 			this.txtNome.Size = new System.Drawing.Size(121, 20);
 			this.txtNome.TabIndex = 1;
 			// 
+			// button1
+			// 
+			this.button1.BackgroundImage = global::TCC.Properties.Resources.CRIAR_1;
+			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button1.Location = new System.Drawing.Point(234, 122);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(85, 31);
+			this.button1.TabIndex = 0;
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// grbMod
 			// 
+			this.grbMod.Controls.Add(this.label7);
+			this.grbMod.Controls.Add(this.label8);
+			this.grbMod.Controls.Add(this.label11);
+			this.grbMod.Controls.Add(this.textBox1);
+			this.grbMod.Controls.Add(this.label12);
+			this.grbMod.Controls.Add(this.textBox2);
 			this.grbMod.Controls.Add(this.label9);
 			this.grbMod.Controls.Add(this.button2);
 			this.grbMod.Controls.Add(this.btnMod);
-			this.grbMod.Controls.Add(this.label7);
-			this.grbMod.Controls.Add(this.txtValorMod);
-			this.grbMod.Controls.Add(this.label8);
-			this.grbMod.Controls.Add(this.cmbCampoMod);
 			this.grbMod.Controls.Add(this.label6);
 			this.grbMod.Controls.Add(this.txtID);
-			this.grbMod.Location = new System.Drawing.Point(458, 287);
+			this.grbMod.Location = new System.Drawing.Point(458, 258);
 			this.grbMod.Name = "grbMod";
-			this.grbMod.Size = new System.Drawing.Size(325, 169);
+			this.grbMod.Size = new System.Drawing.Size(325, 198);
 			this.grbMod.TabIndex = 3;
 			this.grbMod.TabStop = false;
 			this.grbMod.Text = "Modificar";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(179, 133);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(0, 13);
+			this.label7.TabIndex = 18;
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(60, 133);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(110, 13);
+			this.label8.TabIndex = 17;
+			this.label8.Text = "Caracteres restantes: ";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(2, 78);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(55, 13);
+			this.label11.TabIndex = 16;
+			this.label11.Text = "Descrição";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(63, 75);
+			this.textBox1.Multiline = true;
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(242, 55);
+			this.textBox1.TabIndex = 15;
+			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(22, 52);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(35, 13);
+			this.label12.TabIndex = 14;
+			this.label12.Text = "Nome";
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(63, 49);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(121, 20);
+			this.textBox2.TabIndex = 13;
 			// 
 			// label9
 			// 
 			this.label9.Location = new System.Drawing.Point(6, 26);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(319, 31);
+			this.label9.Size = new System.Drawing.Size(271, 14);
 			this.label9.TabIndex = 12;
-			this.label9.Text = "Por favor pesquise pelo seu registro e então clique nele, ou insira o respectivo " +
-    "ID abaixo";
+			this.label9.Text = "Por favor pesquise pelo seu registro e então clique nele.";
 			// 
-			// label7
+			// button2
 			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(18, 123);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(31, 13);
-			this.label7.TabIndex = 9;
-			this.label7.Text = "Valor";
+			this.button2.BackgroundImage = global::TCC.Properties.Resources.EXCLUIR_1;
+			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button2.Location = new System.Drawing.Point(234, 161);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(85, 31);
+			this.button2.TabIndex = 11;
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
-			// txtValorMod
+			// btnMod
 			// 
-			this.txtValorMod.Location = new System.Drawing.Point(55, 120);
-			this.txtValorMod.Name = "txtValorMod";
-			this.txtValorMod.Size = new System.Drawing.Size(121, 20);
-			this.txtValorMod.TabIndex = 8;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(9, 95);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(40, 13);
-			this.label8.TabIndex = 7;
-			this.label8.Text = "Campo";
-			// 
-			// cmbCampoMod
-			// 
-			this.cmbCampoMod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbCampoMod.FormattingEnabled = true;
-			this.cmbCampoMod.Location = new System.Drawing.Point(55, 92);
-			this.cmbCampoMod.Name = "cmbCampoMod";
-			this.cmbCampoMod.Size = new System.Drawing.Size(121, 21);
-			this.cmbCampoMod.TabIndex = 6;
+			this.btnMod.BackgroundImage = global::TCC.Properties.Resources.ALTERAR_1;
+			this.btnMod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnMod.Location = new System.Drawing.Point(6, 161);
+			this.btnMod.Name = "btnMod";
+			this.btnMod.Size = new System.Drawing.Size(85, 31);
+			this.btnMod.TabIndex = 10;
+			this.btnMod.UseVisualStyleBackColor = true;
+			this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(31, 69);
+			this.label6.Location = new System.Drawing.Point(114, 170);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(18, 13);
 			this.label6.TabIndex = 5;
@@ -259,9 +323,9 @@
 			// 
 			// txtID
 			// 
-			this.txtID.Location = new System.Drawing.Point(55, 66);
+			this.txtID.Location = new System.Drawing.Point(138, 167);
 			this.txtID.Name = "txtID";
-			this.txtID.Size = new System.Drawing.Size(121, 20);
+			this.txtID.Size = new System.Drawing.Size(63, 20);
 			this.txtID.TabIndex = 4;
 			// 
 			// label10
@@ -284,50 +348,6 @@
 			this.btnFechar.TabIndex = 4;
 			this.btnFechar.UseVisualStyleBackColor = true;
 			this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-			// 
-			// button2
-			// 
-			this.button2.BackgroundImage = global::TCC.Properties.Resources.EXCLUIR_1;
-			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button2.Location = new System.Drawing.Point(182, 60);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(85, 31);
-			this.button2.TabIndex = 11;
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// btnMod
-			// 
-			this.btnMod.BackgroundImage = global::TCC.Properties.Resources.ALTERAR_1;
-			this.btnMod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnMod.Location = new System.Drawing.Point(234, 132);
-			this.btnMod.Name = "btnMod";
-			this.btnMod.Size = new System.Drawing.Size(85, 31);
-			this.btnMod.TabIndex = 10;
-			this.btnMod.UseVisualStyleBackColor = true;
-			this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
-			// 
-			// button1
-			// 
-			this.button1.BackgroundImage = global::TCC.Properties.Resources.CRIAR_1;
-			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button1.Location = new System.Drawing.Point(234, 122);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(85, 31);
-			this.button1.TabIndex = 0;
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// btnPesquisar
-			// 
-			this.btnPesquisar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.BackgroundImage")));
-			this.btnPesquisar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnPesquisar.Location = new System.Drawing.Point(234, 67);
-			this.btnPesquisar.Name = "btnPesquisar";
-			this.btnPesquisar.Size = new System.Drawing.Size(85, 31);
-			this.btnPesquisar.TabIndex = 4;
-			this.btnPesquisar.UseVisualStyleBackColor = true;
-			this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
 			// 
 			// FrmAtividades
 			// 
@@ -380,11 +400,13 @@
 		private System.Windows.Forms.TextBox txtID;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button btnMod;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.TextBox txtValorMod;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.ComboBox cmbCampoMod;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.TextBox textBox2;
 	}
 }
