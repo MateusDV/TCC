@@ -132,6 +132,13 @@ namespace TCC
 			}
 		}
 
+		public static double porcentagem_faltas(int total, int faltas)
+		{
+			int idas = total - faltas;
+			double freq = (idas * 100) / total;
+			return freq;
+		}
+
         //public static bool Pis(string pis)
         //{
         //    int[] multiplicador = new int[10] { 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };

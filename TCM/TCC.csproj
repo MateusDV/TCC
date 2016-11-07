@@ -110,6 +110,7 @@
     <Compile Include="Forms\FrmRelatorios.Designer.cs">
       <DependentUpon>FrmRelatorios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Turma.cs" />
     <Compile Include="Utilidades\Checar.cs" />
     <Compile Include="ClasseConexao.cs" />
     <Compile Include="Compartilha.cs" />
